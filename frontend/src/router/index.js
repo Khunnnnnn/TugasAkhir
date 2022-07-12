@@ -68,6 +68,46 @@ const routes = [
       requiresAuth: true, 
    }
   },
+  {
+    path: "/penelitian",
+    name: "penelitian",
+    component: () => import(/* webpackChunkName: "about" */ "../Penelitian/HomePenelitianView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/createpenelitian",
+    name: "createpenelitian",
+    component: () => import(/* webpackChunkName: "about" */ "../Penelitian/CreatePenelitianView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/editpenelitian",
+    name: "editpenelitian",
+    component: () => import(/* webpackChunkName: "about" */ "../Penelitian/EditPenelitianView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/bimbinganta",
+    name: "bimbinganta",
+    component: () => import(/* webpackChunkName: "about" */ "../BimbinganTa/HomeBimbinganView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/createbimbingan",
+    name: "createbimbingan",
+    component: () => import(/* webpackChunkName: "about" */ "../BimbinganTa/CreateBimbinganView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
 ];
 
 const router = new VueRouter({
@@ -79,7 +119,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   let token = localStorage.getItem('token') != null;
   if (to.name === 'login' && token){
-    next({ name: 'home' })
+    next({ name: 'dashboard' })
   }else if(to.matched.some(record => record.meta.requiresAuth)) {
       if (!token) {
         next({

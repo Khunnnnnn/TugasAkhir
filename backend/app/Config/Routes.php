@@ -39,6 +39,8 @@ $routes->get('/', 'Home::index');
 $routes->get("getuser", "Profile::getuser");
 
 $routes->resource('api/post', ['controller' => 'Post']);
+$routes->resource('api/penelitian', ['controller' => 'Penelitian']);
+$routes->resource('api/bimbinganta', ['controller' => 'BimbinganTa']);
 
 $routes->group("api", function ($routes) {
     $routes->post("register", "Register::index");

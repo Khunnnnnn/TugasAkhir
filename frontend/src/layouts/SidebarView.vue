@@ -1,8 +1,7 @@
 <template>
   <aside class="main-sidebar sidebar-dark-secondary elevation-4">
-    <a href="" style=" text-decoration:none" class="brand-link bg-danger text-white">
-      <span class="brand-text font-weight-bold mr-5 ml-5">AdminLTE 3</span>
-    </a>
+    <router-link to="/dashboard" style=" text-decoration:none" class="brand-link bg-danger text-white">
+      <span class="brand-text font-weight-bold mr-5 ml-5">Admin LKPS</span></router-link>
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
@@ -57,10 +56,35 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="fas fa-users nav-icon"></i>
+              <p>
+                Sumber Daya Manusia 
+                 <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class=" ml-auto nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/penelitian" class="nav-link">
+                  <i class=" ml-auto far fa-circle nav-icon"></i>
+                  <p>Penelitian</p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/bimbinganta" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Bimbingan TA</p>
+                </router-link>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </div>
-    <div class="card no-gutters no-border bg-danger" style="top: 29.5em;">
+    <div class="card no-gutters no-border bg-danger">
       <button type="submit" @click="logout" class="btn text-white">
         <h5>Logout</h5>
       </button>
@@ -85,34 +109,9 @@ export default {
 
       this.$router.push("/");
     },
-    PostStore(e) {
-      if (this.post.title && this.post.content) {
-        axios
-          .post("http://localhost:8080/api/post", this.post)
-          .then(() => {
-            this.$router.push({
-              name: "posts",
-            });
-          })
-          .catch((error) => {
-            console.log(error.response);
-          });
-      }
-
-      this.errors = [];
-
-      if (!this.post.title) {
-        this.errors.push("Masukkan Title Post.");
-      }
-
-      if (!this.post.content) {
-        this.errors.push("Masukkan Konten Post.");
-      }
-
-      e.preventDefault();
-    },
   },
 };
+
 </script>
 
 <style>
