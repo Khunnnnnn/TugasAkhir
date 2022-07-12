@@ -1,5 +1,5 @@
 <template>
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light bg-danger ">
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light bg-gradient-blue ">
           <ul class="navbar-nav">
             <li class="nav-item">
               <a class="nav-link" data-widget="pushmenu" href="#" role="button"

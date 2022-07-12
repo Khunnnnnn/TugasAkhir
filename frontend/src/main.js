@@ -4,7 +4,8 @@ import router from "./router";
 import axios from "axios";
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
-import vueTopprogress from 'vue-top-progress'
+import vueTopprogress from 'vue-top-progress';
+
 Vue.use(vueTopprogress)
 
 components:{
