@@ -42,7 +42,7 @@ class Login extends ResourceController
             'sub' => 'logintoken',
             'iat' => $iat,
             'exp' => $exp,
-            'email' => $email
+            'nidn' => $nidn
         ];
 
         $token = JWT::encode($payload, $key, "HS256");

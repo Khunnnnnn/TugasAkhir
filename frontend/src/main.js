@@ -18,10 +18,11 @@ Vue.config.productionTip = false;
 import NavbarView from "./layouts/NavbarView.vue";
 import SidebarView from "./layouts/SidebarView.vue";
 import FooterView from "./layouts/FooterView.vue";
-
+import Preloader from "./layouts/PreloaderView.vue";
 Vue.component("sidebar-layout", SidebarView);
 Vue.component("navbar-layout", NavbarView);
 Vue.component("footer-layout", FooterView);
+Vue.component("Preloader", Preloader);
 
 new Vue({
   router,

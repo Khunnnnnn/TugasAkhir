@@ -34,6 +34,11 @@ class User extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
+            'status_level' => [
+                'type' => 'ENUM',
+                'constraint' => ['superadmin','admin','dosen'],
+                'default' => 'admin'
+            ],
             'created_at' => [
                 'type' => 'TIMESTAMP',
                 'null' => true

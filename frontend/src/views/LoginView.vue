@@ -3,10 +3,10 @@
 	<img class="wave" src="img/wave.png">
 	<div class="container">
 		<div class="img">
-			<img src="img/6.png">
+			<img src="img/4.png">
 		</div>
 		<div class="login-content">
-			<form @submit.prevent="PostStore()">
+			<form @submit.prevent="PostStore">
 				<img src="img/avatar.svg">
 				<h2 class="title">Welcome</h2>
            		<div class="input-div one">
@@ -55,7 +55,7 @@ inputs.forEach(input => {
 });
 import axios from "axios";
 export default {
-  name: "Login",
+  name: "login",
   components: {},
   data() {
     return {
@@ -83,7 +83,8 @@ export default {
           .then((response) => {
             const token = response.data.token;
             localStorage.setItem("token", response.data.token);
-            if (token) {
+            if (token) { 
+				location.reload();	
               this.$router.push({
                 name: "dashboard",
               });

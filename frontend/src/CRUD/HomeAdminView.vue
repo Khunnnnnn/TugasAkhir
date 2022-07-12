@@ -20,7 +20,6 @@
             </div>
           </div>
         </div>
-
         <div class="content">
           <div class="container-fluid">
             <div class="row justify-content-center">
@@ -33,15 +32,17 @@
                     <hr />
 
                     <div class="table-responsive mt-2">
-                      <table class="table table-hover table-bordered">
+                      <table class="table table-hover table-bordered" id="datatable">
                         <thead>
                           <tr>
-                            <th>USER</th>
+                            <th>NIDN</th>
+                            <th>email</th>
                             <th>AKSI</th>
                           </tr>
                         </thead>
                         <tbody>
                           <tr v-for="(user, index) in users" :key="user.id">
+                            <td>{{ user.nidn }}</td>
                             <td>{{ user.email }}</td>
                             <td class="text-center">
                               <router-link
@@ -75,6 +76,11 @@ import axios from "axios";
 import NavbarView from "../layouts/NavbarView.vue";
 import SidebarView from "../layouts/SidebarView.vue";
 import FooterView from "../layouts/FooterView.vue";
+import "jquery/dist/jquery.min.js";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "datatables.net-dt/js/dataTables.dataTables";
+import "datatables.net-dt/css/jquery.dataTables.min.css";
+import $ from "jquery";
 export default {
   mounted () {
     this.$refs.topProgress.start()
@@ -105,6 +111,16 @@ export default {
       })
       .then((response) => {
         this.users = response.data.users;
+        console.log(response.data.data)
+      setTimeout(() => {
+        $("#datatable").DataTable({
+          lengthMenu: [
+            [5, 10, 25, 50, -1],
+            [5, 10, 25, 50, "All"],
+          ],
+          pageLength: 5,
+        });
+      });
             }).catch((error) => {
           
           this.errors = error.response.data.errors;
