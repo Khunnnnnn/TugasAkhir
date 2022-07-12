@@ -1,6 +1,6 @@
 <template>
   <aside class="main-sidebar sidebar-dark-secondary elevation-4">
-    <router-link to="/dashboard" style=" text-decoration:none" class="brand-link bg-danger text-white">
+    <router-link to="/dashboard" style=" text-decoration:none" class="brand-link bg-gradient-blue text-white">
       <span class="brand-text font-weight-bold mr-5 ml-5">Admin LKPS</span></router-link>
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -41,23 +41,6 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                CRUD Example
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <router-link to="/home" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>CRUD</p>
-                </router-link>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
               <i class="fas fa-users nav-icon"></i>
               <p>
                 Sumber Daya Manusia 
@@ -81,10 +64,27 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                CRUD Example
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/home" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>CRUD</p>
+                </router-link>
+              </li>
+            </ul>
+          </li>
         </ul>
       </nav>
     </div>
-    <div class="card no-gutters no-border bg-danger">
+    <div class="card no-gutters no-border bg-blue">
       <button type="submit" @click="logout" class="btn text-white">
         <h5>Logout</h5>
       </button>

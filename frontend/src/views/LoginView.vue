@@ -269,7 +269,7 @@ a:hover{
 	border-radius: 25px;
 	outline: none;
 	border: none;
-	background-image: linear-gradient(to right, #b72b2b, #ff0c0c, #b00000);
+	background-image: linear-gradient(to right, #2b2db7, #0c24ff, #0017b0);
 	background-size: 200%;
 	font-size: 1.2rem;
 	color: #fff;

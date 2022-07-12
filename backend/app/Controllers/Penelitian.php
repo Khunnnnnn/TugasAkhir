@@ -143,7 +143,7 @@ class Penelitian extends ResourceController
                     'judul'     => $this->request->getPost('judul'),
                     'tahun'   => $this->request->getPost('tahun'),
                     'sumber_dana_pt_mandiri'   => $this->request->getPost('sumber_dana_pt_mandiri'),
-                    'dana_pt_mandiri'   => $this->request->getPost('content'),
+                    'dana_pt_mandiri'   => $this->request->getPost('dana_pt_mandiri'),
                     'sumber_dalam_negeri'   => $this->request->getPost('sumber_dalam_negeri'),
                     'dana_dalam_negeri'   => $this->request->getPost('dana_dalam_negeri'),
                     'sumber_luar_negeri'   => $this->request->getPost('sumber_luar_negeri'),
