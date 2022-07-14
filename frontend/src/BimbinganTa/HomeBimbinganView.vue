@@ -63,8 +63,12 @@
                                 class="btn btn-sm btn-primary mr-2"
                                 >EDIT</router-link
                               > -->
+                              <div class="d-flex justify-content-start">
+
+                              
                               <button @click.prevent="Edit(post.id, index)" class="btn btn-sm btn-primary mr-2">EDIT</button>
                               <button @click.prevent="PostDelete(post.id, index)" class="btn btn-sm btn-danger">HAPUS</button>
+                            </div>
                             </td>
                           </tr>
                         </tbody>
@@ -110,7 +114,18 @@ export default {
         $("#datatable").DataTable({
           dom:"Bftrip",
           buttons:[
-              "excel","csv"
+              {
+              extend:"excel",
+              exportOptions:{
+                columns:':visible'
+              }
+            },
+            'colvis'
+          ],
+          columnDefs:[{
+            targers:-1,
+            visible:false
+          }
           ],
           lengthMenu: [
             [5, 10, 25, 50, -1],

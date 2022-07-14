@@ -32,7 +32,7 @@
                     <hr />
 
                     <div class="table-responsive mt-2">
-                      <table class="table table-hover table-bordered" id="datatable">
+                      <table class="table table-hover table-bordered" id="datatable" style="width: 100%;">
                         <thead>
                           <tr>
                             <th>NIDN</th>
