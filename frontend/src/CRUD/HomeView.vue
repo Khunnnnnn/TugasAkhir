@@ -101,7 +101,30 @@ import jszip from "jszip";
 window.jszip = jszip;
 
 export default {
-  
+  created(){
+    axios.get("http://localhost:8080/getuser",{
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      }).then((response)=>{
+      let {status} = response.data
+      if(status == "admin"){
+      
+
+          
+      }else{
+          this.$router.push({
+        name : 'dashboard',
+       
+    });
+      }
+
+    }).catch((error) => {
+          
+         
+          console.log(error.response);
+        });
+  },
   mounted() {
     axios.get("http://localhost:8080/api/post").then((response) => {
       this.posts = response.data.data;
