@@ -19,7 +19,7 @@
             </div>
           </div>
         </div>
-  
+
         <div class="content">
           <div class="container-fluid">
             <div class="row justify-content-center">

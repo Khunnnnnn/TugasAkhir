@@ -30,13 +30,7 @@
                     <form @submit.prevent="PostUpdate">
                       <div class="form-group">
                         <label>TITLE</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          :class="errors.title ? 'is-invalid' : ''"
-                          placeholder="Masukkan Title"
-                          v-model="post.title"
-                        />
+                        <input type="text" class="form-control" :class="errors.title ? 'is-invalid' : ''" placeholder="Masukkan Title" v-model="post.title" />
                         <div class="invalid-feedback">
                           {{ errors.title }}
                         </div>
@@ -44,40 +38,22 @@
 
                       <div class="form-group">
                         <label>KONTEN</label>
-                        <textarea
-                          class="form-control"
-                          :class="errors.content ? 'is-invalid' : ''"
-                          rows="5"
-                          placeholder="Masukkan Konten"
-                          v-model="post.content"
-                        ></textarea>
+                        <textarea class="form-control" :class="errors.content ? 'is-invalid' : ''" rows="5" placeholder="Masukkan Konten" v-model="post.content"></textarea>
                         <div class="invalid-feedback">
                           {{ errors.content }}
                         </div>
                       </div>
                       <div class="form-group">
                         <label>File</label> <br />
-                        <input
-                          type="file"
-                          @change="onChange"
-                          class=""
-                          :class="errors.files ? 'is-invalid' : ''"
-                        />
+                        <input type="file" @change="onChange" class="" :class="errors.files ? 'is-invalid' : ''" />
                         <div class="invalid-feedback">
                           {{ errors.files }}
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <button
-                          type="submit"
-                          class="btn btn-md btn-success mr-2"
-                        >
-                          UPDATE
-                        </button>
-                        <button type="reset" class="btn btn-md btn-danger">
-                          RESET
-                        </button>
+                        <button type="submit" class="btn btn-md btn-success mr-2">UPDATE</button>
+                        <button type="reset" class="btn btn-md btn-danger">RESET</button>
                       </div>
                     </form>
                   </div>
@@ -93,10 +69,10 @@
 </template>
 
 <script>
-import axios from "axios"
-import NavbarView from "../layouts/NavbarView.vue"
-import SidebarView from "../layouts/SidebarView.vue"
-import FooterView from "../layouts/FooterView.vue"
+import axios from "axios";
+import NavbarView from "../layouts/NavbarView.vue";
+import SidebarView from "../layouts/SidebarView.vue";
+import FooterView from "../layouts/FooterView.vue";
 export default {
   name: "home",
   components: {
@@ -113,45 +89,48 @@ export default {
       errors: {},
       files: null,
       url: "http://localhost:8080/dokumentb8/",
-    }
+    };
   },
   created() {
-    axios
-      .get(`http://localhost:8080/api/post/${this.$route.params.id}`)
-      .then((response) => {
-        this.post = response.data.data
-      })
+    axios.get(`http://localhost:8080/api/post/${this.$route.params.id}`).then((response) => {
+      this.post = response.data.data;
+    });
   },
   methods: {
     onChange(e) {
-      console.log(e.target.files[0])
-      this.files = e.target.files[0]
+      console.log(e.target.files[0]);
+      this.files = e.target.files[0];
     },
     PostUpdate(e) {
-      let formData = new FormData()
-      formData.append("title", this.post.title)
-      formData.append("content", this.post.content)
-      formData.append("files", this.files)
-      formData.append("_method", "PUT")
+      let formData = new FormData();
+      formData.append("title", this.post.title);
+      formData.append("content", this.post.content);
+      formData.append("files", this.files);
+      formData.append("_method", "PUT");
       axios
-        .post(
-          `http://localhost:8080/api/post/${this.$route.params.id}`,
-          formData
-        )
+        .post(`http://localhost:8080/api/post/${this.$route.params.id}`, formData)
         .then((response) => {
-          this.$swal("Sukses!", "Your file has been saved.", "success")
+          this.$swal(
+          'Sukses!',
+      'Your file has been saved.',
+      'success'
+        )
           this.$router.push({
             name: "home",
-          })
-          console.log(response)
+          });
+          console.log(response);
         })
         .catch((error) => {
-          this.$swal("Failed!", "Your file has not been saved.", "error")
-          this.errors = error.response.data.errors
-        })
+           this.$swal(
+          'Failed!',
+      'Your file has not been saved.',
+      'error'
+        )
+          this.errors = error.response.data.errors;
+        });
 
-      e.preventDefault()
+      e.preventDefault();
     },
   },
-}
+};
 </script>

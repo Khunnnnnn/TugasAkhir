@@ -42,8 +42,8 @@ class Profile extends ResourceController
         try {
             $decoded = JWT::decode($token, new Key($key, "HS256"));
             $response = [
-                                'nidn' => $decoded->nidn,
-                                'status' => $decoded->status
+                                'email' => $decoded->email,
+                                'data' => "asdasd"
             ];
             return $this->respond($response);
         } catch (\Throwable $th) {
