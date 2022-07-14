@@ -7,7 +7,9 @@ use CodeIgniter\Database\Migration;
 class User extends Migration
 {
     public function up()
+    
     {
+        
         //
         $this->forge->addField([
             'id' => [
@@ -49,7 +51,7 @@ class User extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('users');
+        $this->forge->createTable('users',true);
     }
 
 
