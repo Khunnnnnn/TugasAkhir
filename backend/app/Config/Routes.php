@@ -42,10 +42,6 @@ $routes->resource('api/post', ['controller' => 'Post']);
 $routes->resource('api/penelitian', ['controller' => 'Penelitian']);
 $routes->resource('api/bimbinganta', ['controller' => 'BimbinganTa']);
 
-// Prodi
-$routes->resource('api/prodi', ['controller' => 'Prodi']);
-$routes->resource('api/ipk', ['controller' => 'IpkMhs']);
-
 $routes->group("api", function ($routes) {
     $routes->post("register", "Register::index");
     $routes->post("login", "Login::index");
