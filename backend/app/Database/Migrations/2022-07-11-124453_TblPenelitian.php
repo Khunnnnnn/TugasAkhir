@@ -29,8 +29,8 @@ class TblPenelitian extends Migration
 				'null'           => true,
 			],
 			'dana_pt_mandiri' => [
-				'type'           => 'VARCHAR',
-				'constraint'     => 100,
+				'type'           => 'TEXT',
+				'null'     		=> false,
 			],
 			'sumber_dalam_negeri' => [
 				'type'           => 'TEXT',

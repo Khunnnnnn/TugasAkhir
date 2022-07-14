@@ -50,23 +50,6 @@
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                CRUD Example
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <router-link to="/home" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>CRUD</p>
-                </router-link>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">
               <i class="fas fa-users nav-icon"></i>
               <p>
                 Sumber Daya Manusia
@@ -110,7 +93,7 @@
         </ul>
       </nav>
     </div>
-    <div class="card no-gutters no-border bg-danger">
+    <div class="card no-gutters no-border bg-blue">
       <button type="submit" @click="logout" class="btn text-white">
         <h5>Logout</h5>
       </button>

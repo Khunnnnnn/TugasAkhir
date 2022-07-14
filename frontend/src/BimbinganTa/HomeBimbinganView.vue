@@ -32,7 +32,7 @@
                     <hr />
 
                     <div class="table-responsive mt-2">
-                      <table id="datatable" class="table table-hover table-bordered display">
+                      <table id="datatable" class="table table-hover table-bordered display" style="width: 100%;">
                         <thead>
                           <tr>
                             <th>TAHUN AKADEMIK</th>
@@ -91,7 +91,14 @@ import "jquery/dist/jquery.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "datatables.net-dt/js/dataTables.dataTables";
 import "datatables.net-dt/css/jquery.dataTables.min.css";
+import "datatables.net-buttons/js/buttons.colVis.min";
+import "datatables.net-buttons/js/dataTables.buttons";
+import "datatables.net-buttons/js/buttons.flash.min";
+import "datatables.net-buttons/js/buttons.html5.min";
 import $ from "jquery";
+import "datatables.net";
+import jszip from "jszip";
+window.jszip = jszip;
 
 export default {
   
@@ -101,6 +108,10 @@ export default {
       console.log(response.data.data)
       setTimeout(() => {
         $("#datatable").DataTable({
+          dom:"Bftrip",
+          buttons:[
+              "excel","csv"
+          ],
           lengthMenu: [
             [5, 10, 25, 50, -1],
             [5, 10, 25, 50, "All"],
