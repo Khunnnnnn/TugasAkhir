@@ -25,36 +25,26 @@
             <div class="row justify-content-center">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">EDIT POSTS</div>
+                  <div class="card-header">TAMBAH POST</div>
                   <div class="card-body">
                     <form @submit.prevent="PostUpdate">
                       <div class="form-group">
-                        <label>TITLE</label>
-                        <input type="text" class="form-control" :class="errors.title ? 'is-invalid' : ''" placeholder="Masukkan Title" v-model="post.title" />
+                        <label>NIM</label>
+                        <input type="text" class="form-control" :class="errors.nim ? 'is-invalid' : ''" placeholder="Masukkan NIM" v-model="post.nim" required />
                         <div class="invalid-feedback">
-                          {{ errors.title }}
+                          {{ errors.nim }}
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label>KONTEN</label>
-                        <textarea class="form-control" :class="errors.content ? 'is-invalid' : ''" rows="5" placeholder="Masukkan Konten" v-model="post.content"></textarea>
+                        <label>Nama</label>
+                        <input class="form-control" :class="errors.nama ? 'is-invalid' : ''" rows="5" placeholder="Masukkan Nama" v-model="post.nama" required />
                         <div class="invalid-feedback">
-                          {{ errors.content }}
+                          {{ errors.nama }}
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label>File</label> <br />
-                        <input type="file" @change="onChange" class="" :class="errors.files ? 'is-invalid' : ''" />
-                        <div class="invalid-feedback">
-                          {{ errors.files }}
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <button type="submit" class="btn btn-md btn-success mr-2">UPDATE</button>
-                        <button type="reset" class="btn btn-md btn-danger">RESET</button>
-                      </div>
+                      <button type="submit" class="btn btn-md btn-success mr-2">SIMPAN</button>
+                      <button type="reset" class="btn btn-md btn-danger">RESET</button>
                     </form>
                   </div>
                 </div>
@@ -83,36 +73,36 @@ export default {
   data() {
     return {
       post: {
-        title: '',
-        content: '',
+        nim: '',
+        nama: '',
       },
       errors: {},
-      files: null,
-      url: 'http://localhost:8080/dokumentb8/',
+      // files: null,
+      //   url: "http://localhost:8080/dokumentb8/",
     };
   },
   created() {
-    axios.get(`http://localhost:8080/api/post/${this.$route.params.id}`).then((response) => {
+    axios.get(`http://localhost:8080/api/mahasiswa/${this.$route.params.id}`).then((response) => {
       this.post = response.data.data;
     });
   },
   methods: {
-    onChange(e) {
-      console.log(e.target.files[0]);
-      this.files = e.target.files[0];
-    },
+    // onChange(e) {
+    //   console.log(e.target.files[0]);
+    //   this.files = e.target.files[0];
+    // },
     PostUpdate(e) {
       let formData = new FormData();
-      formData.append('title', this.post.title);
-      formData.append('content', this.post.content);
-      formData.append('files', this.files);
+      formData.append('nim', this.post.nim);
+      formData.append('nama', this.post.nama);
       formData.append('_method', 'PUT');
+
       axios
-        .post(`http://localhost:8080/api/post/${this.$route.params.id}`, formData)
+        .post(`http://localhost:8080/api/mahasiswa/${this.$route.params.id}`, formData)
         .then((response) => {
           this.$swal('Sukses!', 'Your file has been saved.', 'success');
           this.$router.push({
-            name: 'home',
+            name: 'mahasiswa',
           });
           console.log(response);
         })

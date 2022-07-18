@@ -25,36 +25,26 @@
             <div class="row justify-content-center">
               <div class="col-md-12">
                 <div class="card">
-                  <div class="card-header">EDIT POSTS</div>
+                  <div class="card-header">TAMBAH POST</div>
                   <div class="card-body">
                     <form @submit.prevent="PostUpdate">
                       <div class="form-group">
-                        <label>TITLE</label>
-                        <input type="text" class="form-control" :class="errors.title ? 'is-invalid' : ''" placeholder="Masukkan Title" v-model="post.title" />
+                        <label>Nama Mata Kuliah</label>
+                        <input type="text" class="form-control" :class="errors.nama_matkul ? 'is-invalid' : ''" placeholder="Masukkan Nama Mata Kuliah" v-model="post.nama_matkul" required />
                         <div class="invalid-feedback">
-                          {{ errors.title }}
+                          {{ errors.nama_matkul }}
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label>KONTEN</label>
-                        <textarea class="form-control" :class="errors.content ? 'is-invalid' : ''" rows="5" placeholder="Masukkan Konten" v-model="post.content"></textarea>
+                        <label>SKS</label>
+                        <input class="form-control" :class="errors.sks ? 'is-invalid' : ''" rows="5" placeholder="Masukkan SKS" v-model="post.sks" required />
                         <div class="invalid-feedback">
-                          {{ errors.content }}
+                          {{ errors.sks }}
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label>File</label> <br />
-                        <input type="file" @change="onChange" class="" :class="errors.files ? 'is-invalid' : ''" />
-                        <div class="invalid-feedback">
-                          {{ errors.files }}
-                        </div>
-                      </div>
-
-                      <div class="form-group">
-                        <button type="submit" class="btn btn-md btn-success mr-2">UPDATE</button>
-                        <button type="reset" class="btn btn-md btn-danger">RESET</button>
-                      </div>
+                      <button type="submit" class="btn btn-md btn-success mr-2">SIMPAN</button>
+                      <button type="reset" class="btn btn-md btn-danger">RESET</button>
                     </form>
                   </div>
                 </div>
@@ -83,36 +73,36 @@ export default {
   data() {
     return {
       post: {
-        title: '',
-        content: '',
+        nama_matkul: '',
+        sks: '',
       },
       errors: {},
-      files: null,
-      url: 'http://localhost:8080/dokumentb8/',
+      // files: null,
+      //   url: "http://localhost:8080/dokumentb8/",
     };
   },
   created() {
-    axios.get(`http://localhost:8080/api/post/${this.$route.params.id}`).then((response) => {
+    axios.get(`http://localhost:8080/api/matakuliah/${this.$route.params.id}`).then((response) => {
       this.post = response.data.data;
     });
   },
   methods: {
-    onChange(e) {
-      console.log(e.target.files[0]);
-      this.files = e.target.files[0];
-    },
+    // onChange(e) {
+    //   console.log(e.target.files[0]);
+    //   this.files = e.target.files[0];
+    // },
     PostUpdate(e) {
       let formData = new FormData();
-      formData.append('title', this.post.title);
-      formData.append('content', this.post.content);
-      formData.append('files', this.files);
+      formData.append('nama_matkul', this.post.nama_matkul);
+      formData.append('sks', this.post.sks);
       formData.append('_method', 'PUT');
+
       axios
-        .post(`http://localhost:8080/api/post/${this.$route.params.id}`, formData)
+        .post(`http://localhost:8080/api/matakuliah/${this.$route.params.id}`, formData)
         .then((response) => {
           this.$swal('Sukses!', 'Your file has been saved.', 'success');
           this.$router.push({
-            name: 'home',
+            name: 'matakuliah',
           });
           console.log(response);
         })

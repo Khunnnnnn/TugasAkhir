@@ -7,7 +7,9 @@ use CodeIgniter\Database\Migration;
 class User extends Migration
 {
     public function up()
+
     {
+
         //
         $this->forge->addField([
             'id' => [
@@ -36,7 +38,7 @@ class User extends Migration
             ],
             'status_level' => [
                 'type' => 'ENUM',
-                'constraint' => ['superadmin','admin','dosen'],
+                'constraint' => ['superadmin', 'admin', 'dosen'],
                 'default' => 'admin'
             ],
             'created_at' => [
@@ -49,7 +51,7 @@ class User extends Migration
             ],
         ]);
         $this->forge->addPrimaryKey('id');
-        $this->forge->createTable('users');
+        $this->forge->createTable('users', true);
     }
 
 
