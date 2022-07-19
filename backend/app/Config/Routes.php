@@ -41,6 +41,17 @@ $routes->get("getuser", "Profile::getuser");
 $routes->resource('api/post', ['controller' => 'Post']);
 $routes->resource('api/penelitian', ['controller' => 'Penelitian']);
 $routes->resource('api/bimbinganta', ['controller' => 'BimbinganTa']);
+$routes->resource('api/mahasiswa', ['controller' => 'Mahasiswa']);
+$routes->resource('api/matakuliah', ['controller' => 'MataKuliah']);
+$routes->resource('api/kepuasanmahasiswa', ['controller' => 'KepuasanMahasiswa']);
+$routes->resource('api/prodi', ['controller' => 'ProgramStudi']);
+$routes->resource('api/capaiankurikulum', ['controller' => 'CapaianKurikulum']);
+$routes->resource('api/pkm', ['controller' => 'Pkm']);
+
+
+
+
+
 
 // Prodi
 $routes->resource('api/prodi', ['controller' => 'Prodi']);

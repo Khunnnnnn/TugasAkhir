@@ -1,0 +1,138 @@
+<div class="form-group">
+    <label>KEANDALAN : BAIK</label>
+    <input class="form-control" :class="errors.keandalan_3 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.keandalan_3" required />
+    <div class="invalid-feedback">
+      {{ errors.keandalan_3 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>KEANDALAN : CUKUP</label>
+    <input class="form-control" :class="errors.keandalan_2 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.keandalan_2" required />
+    <div class="invalid-feedback">
+      {{ errors.keandalan_2 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>KEANDALAN : KURANG</label>
+    <input class="form-control" :class="errors.keandalan_1 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.keandalan_1" required />
+    <div class="invalid-feedback">
+      {{ errors.keandalan_1 }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>DAYA TANGGAP : SANGAT BAIK</label>
+    <input class="form-control" :class="errors.daya_tanggap_4 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.daya_tanggap_4" required />
+    <div class="invalid-feedback">
+      {{ errors.daya_tanggap_4 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>DAYA TANGGAP : BAIK</label>
+    <input class="form-control" :class="errors.daya_tanggap_3 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.daya_tanggap_3" required />
+    <div class="invalid-feedback">
+      {{ errors.daya_tanggap_3 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>DAYA TANGGAP : CUKUP</label>
+    <input class="form-control" :class="errors.daya_tanggap_2 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.daya_tanggap_2" required />
+    <div class="invalid-feedback">
+      {{ errors.daya_tanggap_2 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>DAYA TANGGAP : KURANG</label>
+    <input class="form-control" :class="errors.daya_tanggap_1 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.daya_tanggap_1" required />
+    <div class="invalid-feedback">
+      {{ errors.daya_tanggap_1 }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>KEPASTIAN : SANGAT BAIK</label>
+    <input class="form-control" :class="errors.kepastian_4 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.kepastian_4" required />
+    <div class="invalid-feedback">
+      {{ errors.kepastian_4 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>KEPASTIAN : BAIK</label>
+    <input class="form-control" :class="errors.kepastian_3 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.kepastian_3" required />
+    <div class="invalid-feedback">
+      {{ errors.kepastian_3 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>KEPASTIAN : CUKUP</label>
+    <input class="form-control" :class="errors.kepastian_2 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.kepastian_2" required />
+    <div class="invalid-feedback">
+      {{ errors.kepastian_2 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>KEPASTIAN : KURANG</label>
+    <input class="form-control" :class="errors.kepastian_1 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.kepastian_1" required />
+    <div class="invalid-feedback">
+      {{ errors.kepastian_1 }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>EMPATI : SANGAT BAIK</label>
+    <input class="form-control" :class="errors.empati_4 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.empati_4" required />
+    <div class="invalid-feedback">
+      {{ errors.empati_4 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>EMPATI : BAIK</label>
+    <input class="form-control" :class="errors.empati_3 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.empati_3" required />
+    <div class="invalid-feedback">
+      {{ errors.empati_3 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>EMPATI : CUKUP</label>
+    <input class="form-control" :class="errors.empati_2 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.empati_2" required />
+    <div class="invalid-feedback">
+      {{ errors.empati_2 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>EMPATI : KURANG</label>
+    <input class="form-control" :class="errors.empati_1 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.empati_1" required />
+    <div class="invalid-feedback">
+      {{ errors.empati_1 }}
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label>TANGIBLE : SANGAT BAIK</label>
+    <input class="form-control" :class="errors.tangible_4 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.tangible_4" required />
+    <div class="invalid-feedback">
+      {{ errors.tangible_4 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>TANGIBLE : BAIK</label>
+    <input class="form-control" :class="errors.tangible_3 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.tangible_3" required />
+    <div class="invalid-feedback">
+      {{ errors.tangible_3 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>TANGIBLE : CUKUP</label>
+    <input class="form-control" :class="errors.tangible_2 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.tangible_2" required />
+    <div class="invalid-feedback">
+      {{ errors.tangible_2 }}
+    </div>
+  </div>
+  <div class="form-group">
+    <label>TANGIBLE : KURANG</label>
+    <input class="form-control" :class="errors.tangible_1 ? 'is-invalid' : ''" placeholder="Masukkan nilai" v-model="post.tangible_1" required />
+    <div class="invalid-feedback">
+      {{ errors.tangible_1 }}
+    </div>
+  </div>
+  
