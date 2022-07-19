@@ -30,7 +30,13 @@
                     <form @submit.prevent="PostUpdate">
                       <div class="form-group">
                         <label>TITLE</label>
-                        <input type="text" class="form-control" :class="errors.title ? 'is-invalid' : ''" placeholder="Masukkan Title" v-model="post.title" />
+                        <input
+                          type="text"
+                          class="form-control"
+                          :class="errors.title ? 'is-invalid' : ''"
+                          placeholder="Masukkan Title"
+                          v-model="post.title"
+                        />
                         <div class="invalid-feedback">
                           {{ errors.title }}
                         </div>
@@ -38,22 +44,40 @@
 
                       <div class="form-group">
                         <label>KONTEN</label>
-                        <textarea class="form-control" :class="errors.content ? 'is-invalid' : ''" rows="5" placeholder="Masukkan Konten" v-model="post.content"></textarea>
+                        <textarea
+                          class="form-control"
+                          :class="errors.content ? 'is-invalid' : ''"
+                          rows="5"
+                          placeholder="Masukkan Konten"
+                          v-model="post.content"
+                        ></textarea>
                         <div class="invalid-feedback">
                           {{ errors.content }}
                         </div>
                       </div>
                       <div class="form-group">
                         <label>File</label> <br />
-                        <input type="file" @change="onChange" class="" :class="errors.files ? 'is-invalid' : ''" />
+                        <input
+                          type="file"
+                          @change="onChange"
+                          class=""
+                          :class="errors.files ? 'is-invalid' : ''"
+                        />
                         <div class="invalid-feedback">
                           {{ errors.files }}
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <button type="submit" class="btn btn-md btn-success mr-2">UPDATE</button>
-                        <button type="reset" class="btn btn-md btn-danger">RESET</button>
+                        <button
+                          type="submit"
+                          class="btn btn-md btn-success mr-2"
+                        >
+                          UPDATE
+                        </button>
+                        <button type="reset" class="btn btn-md btn-danger">
+                          RESET
+                        </button>
                       </div>
                     </form>
                   </div>
@@ -92,14 +116,16 @@ export default {
     };
   },
   created() {
-    axios.get(`http://localhost:8080/api/post/${this.$route.params.id}`).then((response) => {
-      this.post = response.data.data;
-    });
+    axios
+      .get(`http://localhost:8080/api/post/${this.$route.params.id}`)
+      .then((response) => {
+        this.post = response.data.data
+      })
   },
   methods: {
     onChange(e) {
-      console.log(e.target.files[0]);
-      this.files = e.target.files[0];
+      console.log(e.target.files[0])
+      this.files = e.target.files[0]
     },
     PostUpdate(e) {
       let formData = new FormData();
@@ -121,8 +147,8 @@ export default {
           this.errors = error.response.data.errors;
         });
 
-      e.preventDefault();
+      e.preventDefault()
     },
   },
-};
+}
 </script>

@@ -7,7 +7,9 @@
           <img src="img/avatar.svg" class="img-circle elevation-2" alt="User Image" />
         </div>
         <div class="info">
-          <span class="brand-text font-italic font-weight-bolder text-white">Kelompok 2</span>
+          <span class="brand-text font-italic font-weight-bolder text-white"
+            >Kelompok 2</span
+          >
         </div>
       </div>
       <nav class="mt-2">
@@ -116,15 +118,15 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                CRUD Example
+                Tridarma
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul class="ml-auto nav nav-treeview">
               <li class="nav-item">
-                <router-link to="/home" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>CRUD</p>
+                <router-link to="/viewipk" class="nav-link">
+                  <i class="ml-auto far fa-circle nav-icon"></i>
+                  <p>IPK Mahasiswa</p>
                 </router-link>
               </li>
             </ul>
@@ -149,7 +151,7 @@ export default {
     return {
       post: {},
       errors: [],
-    };
+    }
   },
   methods: {
     logout() {

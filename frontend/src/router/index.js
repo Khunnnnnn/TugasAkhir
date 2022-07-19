@@ -5,6 +5,7 @@ import CreateView from "../CRUD/CreateView.vue";
 import AdminView from "../CRUD/HomeAdminView.vue";
 import LoginView from "../views/LoginView.vue";
 import LayoutsView from "../layouts/LayoutsView.vue";
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -22,8 +23,8 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
     meta: {
-      requiresAuth: true, 
-   }
+      requiresAuth: true,
+    }
   },
   {
     path: "/admin",
@@ -33,80 +34,104 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: AdminView,
     meta: {
-      requiresAuth: true, 
-   }
+      requiresAuth: true,
+    }
   },
   {
     path: "/create",
     name: "create",
     component: CreateView,
     meta: {
-      requiresAuth: true, 
-   }
+      requiresAuth: true,
+    }
   },
   {
     path: "/edit",
     name: "edit",
     component: () => import(/* webpackChunkName: "about" */ "../CRUD/EditPostView.vue"),
     meta: {
-      requiresAuth: true, 
-   }
+      requiresAuth: true,
+    }
   },
   {
     path: "/dashboard",
     name: "dashboard",
     component: LayoutsView,
     meta: {
-      requiresAuth: true, 
-   }
+      requiresAuth: true,
+    }
   },
   {
     path: "/home",
     name: "home",
     component: HomeView,
     meta: {
-      requiresAuth: true, 
-   }
+      requiresAuth: true,
+    }
   },
   {
     path: "/penelitian",
     name: "penelitian",
     component: () => import(/* webpackChunkName: "about" */ "../Penelitian/HomePenelitianView.vue"),
     meta: {
-      requiresAuth: true, 
-   }
+      requiresAuth: true,
+    }
   },
   {
     path: "/createpenelitian",
     name: "createpenelitian",
     component: () => import(/* webpackChunkName: "about" */ "../Penelitian/CreatePenelitianView.vue"),
     meta: {
-      requiresAuth: true, 
-   }
+      requiresAuth: true,
+    }
   },
   {
     path: "/editpenelitian",
     name: "editpenelitian",
     component: () => import(/* webpackChunkName: "about" */ "../Penelitian/EditPenelitianView.vue"),
     meta: {
-      requiresAuth: true, 
-   }
+      requiresAuth: true,
+    }
   },
   {
     path: "/bimbinganta",
     name: "bimbinganta",
     component: () => import(/* webpackChunkName: "about" */ "../BimbinganTa/HomeBimbinganView.vue"),
     meta: {
-      requiresAuth: true, 
-   }
+      requiresAuth: true,
+    }
   },
   {
     path: "/createbimbingan",
     name: "createbimbingan",
     component: () => import(/* webpackChunkName: "about" */ "../BimbinganTa/CreateBimbinganView.vue"),
     meta: {
-      requiresAuth: true, 
-   }
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/viewipk",
+    name: "viewipk",
+    component: () => import(/* webpackChunkName: "about" */ "../IPKMhs/IpkView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/createipk",
+    name: "createipk",
+    component: () => import(/* webpackChunkName: "about" */ "../IPKMhs/CreateIpk.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/editipk",
+    name: "editipk",
+    component: () => import(/* webpackChunkName: "about" */ "../IPKMhs/EditIpk.vue"),
+    meta: {
+      requiresAuth: true,
+    }
   },
   {
     path: "/mahasiswa",
@@ -234,23 +259,24 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+
 });
 
 router.beforeEach((to, from, next) => {
   let token = localStorage.getItem('token') != null;
-  if (to.name === 'login' && token){
+  if (to.name === 'login' && token) {
     next({ name: 'dashboard' })
-  }else if(to.matched.some(record => record.meta.requiresAuth)) {
-      if (!token) {
-        next({
-          path: '/',
-          query: { redirect: to.fullPath }
-        })
-      } else { 
-         next() 
+  } else if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (!token) {
+      next({
+        path: '/',
+        query: { redirect: to.fullPath }
+      })
+    } else {
+      next()
     }
-  }else {
-     next()
+  } else {
+    next()
   }
 })
 

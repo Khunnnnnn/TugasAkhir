@@ -53,6 +53,10 @@ $routes->resource('api/pkm', ['controller' => 'Pkm']);
 
 
 
+// Prodi
+$routes->resource('api/prodi', ['controller' => 'Prodi']);
+$routes->resource('api/ipk', ['controller' => 'IpkMhs']);
+
 $routes->group("api", function ($routes) {
     $routes->post("register", "Register::index");
     $routes->post("login", "Login::index");

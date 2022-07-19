@@ -32,7 +32,7 @@
                     <hr />
 
                     <div class="table-responsive mt-2">
-                      <table id="datatable" class="table table-hover table-bordered display">
+                      <table id="datatable" class="table table-hover table-bordered display" style="width: 100%;">
                         <thead>
                           <tr>
                             <th>TITLE</th>
@@ -61,8 +61,10 @@
                                 class="btn btn-sm btn-primary mr-2"
                                 >EDIT</router-link
                               > -->
+                              <div class="d-flex justify-content-start">
                               <button @click.prevent="Edit(post.id, index)" class="btn btn-sm btn-primary mr-2">EDIT</button>
                               <button @click.prevent="PostDelete(post.id, index)" class="btn btn-sm btn-danger">HAPUS</button>
+                            </div>
                             </td>
                           </tr>
                         </tbody>
@@ -99,7 +101,30 @@ import jszip from "jszip";
 window.jszip = jszip;
 
 export default {
-  
+  created(){
+    axios.get("http://localhost:8080/getuser",{
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      }).then((response)=>{
+      let {status} = response.data
+      if(status == "admin"){
+      
+
+          
+      }else{
+          this.$router.push({
+        name : 'dashboard',
+       
+    });
+      }
+
+    }).catch((error) => {
+          
+         
+          console.log(error.response);
+        });
+  },
   mounted() {
     axios.get("http://localhost:8080/api/post").then((response) => {
       this.posts = response.data.data;
@@ -107,8 +132,18 @@ export default {
       setTimeout(() => {
         $("#datatable").DataTable({
           dom:"Bftrip",
-          buttons:[
-              "excel","csv"
+          buttons:[{
+              extend:"excel",
+              exportOptions:{
+                columns:':visible'
+              }
+            },
+            'colvis'
+          ],
+          columnDefs:[{
+            targers:-1,
+            visible:false
+          }
           ],
           lengthMenu: [
             [5, 10, 25, 50, -1],
