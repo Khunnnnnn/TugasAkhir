@@ -93,27 +93,27 @@
 </template>
 
 <script>
-import axios from 'axios';
-import NavbarView from '../layouts/NavbarView.vue';
-import SidebarView from '../layouts/SidebarView.vue';
-import FooterView from '../layouts/FooterView.vue';
+import axios from "axios"
+import NavbarView from "../layouts/NavbarView.vue"
+import SidebarView from "../layouts/SidebarView.vue"
+import FooterView from "../layouts/FooterView.vue"
 export default {
-  name: 'home',
+  name: "home",
   components: {
-    'nav-bar': NavbarView,
-    'side-bar': SidebarView,
-    'footer-vue': FooterView,
+    "nav-bar": NavbarView,
+    "side-bar": SidebarView,
+    "footer-vue": FooterView,
   },
   data() {
     return {
       post: {
-        title: '',
-        content: '',
+        title: "",
+        content: "",
       },
       errors: {},
       files: null,
-      url: 'http://localhost:8080/dokumentb8/',
-    };
+      url: "http://localhost:8080/dokumentb8/",
+    }
   },
   created() {
     axios
@@ -128,24 +128,27 @@ export default {
       this.files = e.target.files[0]
     },
     PostUpdate(e) {
-      let formData = new FormData();
-      formData.append('title', this.post.title);
-      formData.append('content', this.post.content);
-      formData.append('files', this.files);
-      formData.append('_method', 'PUT');
+      let formData = new FormData()
+      formData.append("title", this.post.title)
+      formData.append("content", this.post.content)
+      formData.append("files", this.files)
+      formData.append("_method", "PUT")
       axios
-        .post(`http://localhost:8080/api/post/${this.$route.params.id}`, formData)
+        .post(
+          `http://localhost:8080/api/post/${this.$route.params.id}`,
+          formData
+        )
         .then((response) => {
-          this.$swal('Sukses!', 'Your file has been saved.', 'success');
+          this.$swal("Sukses!", "Your file has been saved.", "success")
           this.$router.push({
-            name: 'home',
-          });
-          console.log(response);
+            name: "home",
+          })
+          console.log(response)
         })
         .catch((error) => {
-          this.$swal('Failed!', 'Your file has not been saved.', 'error');
-          this.errors = error.response.data.errors;
-        });
+          this.$swal("Failed!", "Your file has not been saved.", "error")
+          this.errors = error.response.data.errors
+        })
 
       e.preventDefault()
     },
