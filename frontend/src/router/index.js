@@ -133,6 +133,126 @@ const routes = [
       requiresAuth: true,
     }
   },
+  {
+    path: "/mahasiswa",
+    name: "mahasiswa",
+    component: () => import("../Mahasiswa/HomeMahasiswaView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/createmahasiswa",
+    name: "createmahasiswa",
+    component: () => import("../Mahasiswa/CreateMahasiswaView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/editmahasiswa",
+    name: "editmahasiswa",
+    component: () => import("../Mahasiswa/EditMahasiswaView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/matakuliah",
+    name: "matakuliah",
+    component: () => import("../MataKuliah/HomeMatkulView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/creatmatakuliah",
+    name: "creatematakuliah",
+    component: () => import("../MataKuliah/CreateMatkulView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/editmatakuliah",
+    name: "editmatakuliah",
+    component: () => import("../MataKuliah/EditMatkulView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/kepuasanmahasiswa",
+    name: "kepuasanmahasiswa",
+    component: () => import("../KepuasanMahasiswa/HomeKepuasanMhsView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/createkepuasanmahasiswa",
+    name: "createkepuasanmahasiswa",
+    component: () => import("../KepuasanMahasiswa/CreateKepuasanMhsView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/editkepuasanmahasiswa",
+    name: "editkepuasanmahasiswa",
+    component: () => import("../KepuasanMahasiswa/EditKepuasanMhsView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/capaiankurikulum",
+    name: "capaiankurikulum",
+    component: () => import("../CapaianKurikulum/HomeCapaianKurikulumView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/createcapaiankurikulum",
+    name: "createcapaiankurikulum",
+    component: () => import("../CapaianKurikulum/CreateCapaianKurikulumView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/editcapaiankurikulum",
+    name: "editcapaiankurikulum",
+    component: () => import("../CapaianKurikulum/EditCapaianKurikulumView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/pkm",
+    name: "pkm",
+    component: () => import( "../PkM/HomePkmView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/createpkm",
+    name: "createpkm",
+    component: () => import("../PkM/CreatePkmView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
+  {
+    path: "/editpkm",
+    name: "editpkm",
+    component: () => import("../PkM/EditPkmView.vue"),
+    meta: {
+      requiresAuth: true, 
+   }
+  },
 ];
 
 const router = new VueRouter({
