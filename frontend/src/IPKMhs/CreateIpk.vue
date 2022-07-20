@@ -210,7 +210,7 @@ export default {
         .catch((error) => {
           this.$swal("Failed!", "Your file has not been saved.", "error")
           this.errors = error.response.data.errors
-          console.log(this.errors)
+          console.log(error)
         })
 
       // this.errors = {};

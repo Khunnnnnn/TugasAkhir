@@ -111,10 +111,11 @@ class IpkMhs extends ResourceController
                 'prodi_id'     => $this->request->getPost('idprodi'),
             ]);
 
+
             return $this->respond([
                 'statusCode' => 201,
                 'message'    => "sukses",
-
+                'data' => $ipk
             ], 201);
         } else {
             $response = [
