@@ -51,136 +51,100 @@
                       >
                         <thead>
                           <tr>
-                            <th
-                              data-a-h="center"
-                              data-a-v="middle"
-                              class="text-center"
-                              rowspan="2"
-                              data-b-a-s="thin"
-                              data-fill-color="add8e6"
-                              data-f-sz="14"
-                              data-f-bold="true"
-                            >
-                              NO
-                            </th>
+                            <th rowspan="2" class="text-center">NO</th>
                             <th rowspan="2" class="text-center">PRODI</th>
-                            <th
-                              data-a-h="center"
-                              data-a-v="middle"
-                              class="text-center"
-                              rowspan="2"
-                              data-b-a-s="thin"
-                              data-fill-color="add8e6"
-                              data-f-sz="14"
-                              data-f-bold="true"
-                            >
-                              TAHUN
-                            </th>
-                            <th
-                              data-a-h="center"
-                              data-a-v="middle"
-                              class="text-center"
-                              rowspan="2"
-                              data-b-a-s="thin"
-                              data-fill-color="add8e6"
-                              data-f-sz="14"
-                              data-f-bold="true"
-                            >
+                            <!-- <th rowspan="2" class="text-center">PRODI</th> -->
+                            <th rowspan="2" class="text-center">TAHUN</th>
+                            <th rowspan="2" class="text-center">
                               JUMLAH LULUSAN
                             </th>
-                            <th
-                              data-a-h="center"
-                              data-a-v="middle"
-                              class="text-center"
-                              data-b-a-s="thin"
-                              colspan="3"
-                              data-fill-color="add8e6"
-                              data-f-sz="14"
-                              data-f-bold="true"
-                            >
-                              INDEKS PRESTASI KUMULATIF
+                            <th rowspan="2" class="text-center">
+                              JUMLAH LULUSAN TERLACAK
                             </th>
-                            <th
-                              data-a-h="center"
-                              data-b-a-s="thin"
-                              class="text-center"
-                              rowspan="2"
-                              data-fill-color="add8e6"
-                              data-f-sz="14"
-                              data-f-bold="true"
-                            >
-                              AKSI
+                            <th colspan="7" class="text-center">
+                              Jumlah Tanggapan
                             </th>
+                            <th rowspan="2" class="text-center">AKSI</th>
                           </tr>
                           <tr>
-                            <th
-                              data-b-a-s="thin"
-                              data-a-h="center"
-                              class="text-center"
-                              data-fill-color="add8e6"
-                              data-f-sz="14"
-                              data-f-bold="true"
-                            >
-                              IPK MIN
-                            </th>
-                            <th
-                              data-b-a-s="thin"
-                              data-a-h="center"
-                              class="text-center"
-                              data-fill-color="add8e6"
-                              data-f-sz="14"
-                              data-f-bold="true"
-                            >
-                              IPK AVG
-                            </th>
-                            <th
-                              data-b-a-s="thin"
-                              data-a-h="center"
-                              class="text-center"
-                              data-fill-color="add8e6"
-                              data-f-sz="14"
-                              data-f-bold="true"
-                            >
-                              IPK MAX
-                            </th>
+                            <th>Etika</th>
+                            <th>Keahlian Bidang</th>
+                            <th>Bahasa Asing</th>
+                            <th>Penggunaan TI</th>
+                            <th>Komunikasi</th>
+                            <th>Kerjasama</th>
+                            <th>Pengembangan Diri</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr v-for="(ipk, index) in tbl_ipk" :key="ipk.id">
-                            <td data-b-a-s="thin" data-t="n" data-a-h="center">
+                          <tr
+                            v-for="(persentase, index) in tbl_persentase"
+                            :key="persentase.id"
+                          >
+                            <td data-a-h="center">
                               {{ index + 1 }}
                             </td>
-                            <td data-b-a-s="thin" data-t="n" data-a-h="center">
-                              {{ ipk.prodi }}
+                            <td>{{ persentase.prodi }}</td>
+                            <td>{{ persentase.tahun }}</td>
+                            <td>{{ persentase.jmlh_lulusan }}</td>
+                            <td>{{ persentase.jmlh_terlacak }}</td>
+                            <td>
+                              {{
+                                parseInt(persentase.etika1) +
+                                parseInt(persentase.etika2) +
+                                parseInt(persentase.etika3) +
+                                parseInt(persentase.etika4)
+                              }}
                             </td>
-                            <td data-b-a-s="thin" data-t="n" data-a-h="center">
-                              {{ ipk.tahun }}
+                            <td>
+                              {{
+                                parseInt(persentase.keahlianbidang1) +
+                                parseInt(persentase.keahlianbidang2) +
+                                parseInt(persentase.keahlianbidang3) +
+                                parseInt(persentase.keahlianbidang4)
+                              }}
                             </td>
-                            <td data-b-a-s="thin" data-t="n" data-a-h="center">
-                              {{ ipk.jumlah_lulusan }}
+                            <td>
+                              {{
+                                parseInt(persentase.keahlianbidang1) +
+                                parseInt(persentase.keahlianbidang2) +
+                                parseInt(persentase.keahlianbidang3) +
+                                parseInt(persentase.keahlianbidang4)
+                              }}
                             </td>
-                            <td data-b-a-s="thin" data-t="n" data-a-h="center">
-                              {{ ipk.ipk_min }}
+                            <td>
+                              {{
+                                parseInt(persentase.bahasaasing1) +
+                                parseInt(persentase.bahasaasing2) +
+                                parseInt(persentase.bahasaasing3) +
+                                parseInt(persentase.bahasaasing4)
+                              }}
                             </td>
-                            <td data-b-a-s="thin" data-t="n" data-a-h="center">
-                              {{ ipk.ipk_avg }}
+                            <td>
+                              {{
+                                parseInt(persentase.penggunaanti1) +
+                                parseInt(persentase.penggunaanti2) +
+                                parseInt(persentase.penggunaanti3) +
+                                parseInt(persentase.penggunaanti4)
+                              }}
                             </td>
-                            <td data-b-a-s="thin" data-t="n" data-a-h="center">
-                              {{ ipk.ipk_max }}
+                            <td>
+                              {{
+                                parseInt(persentase.komunikasi1) +
+                                parseInt(persentase.komunikasi3) +
+                                parseInt(persentase.komunikasi2) +
+                                parseInt(persentase.komunikasi4)
+                              }}
                             </td>
-                            <!-- <a v-bind:href="url + post.files">
-                              <td>{{ post.files }}</td></a
-                            > -->
-                            <!-- <td><img :src="url + post.files" alt="" height="100" /></td> -->
-                            <td class="text-center">
-                              <!-- <router-link
-                                :to="{
-                                  name: 'edit',
-                                  params: { id: post.id },
-                                }"
-                                class="btn btn-sm btn-primary mr-2"
-                                >EDIT</router-link
-                              > -->
+                            <td>
+                              {{
+                                parseInt(persentase.pengembangandiri1) +
+                                parseInt(persentase.pengembangandiri2) +
+                                parseInt(persentase.pengembangandiri3) +
+                                parseInt(persentase.pengembangandiri4)
+                              }}
+                            </td>
+                            <td class="text-center d-flex">
                               <button
                                 @click.prevent="Edit(ipk.id, index)"
                                 class="btn btn-sm btn-primary mr-2"
@@ -189,9 +153,17 @@
                               </button>
                               <button
                                 @click.prevent="PostDelete(ipk.id, index)"
-                                class="btn btn-sm btn-danger"
+                                class="btn btn-sm btn-danger mr-2"
                               >
                                 HAPUS
+                              </button>
+                              <button
+                                @click.prevent="
+                                  ViewExport(persentase.id, index)
+                                "
+                                class="btn btn-sm btn-primary"
+                              >
+                                EXPORT
                               </button>
                             </td>
                           </tr>
@@ -246,9 +218,9 @@ export default {
   },
 
   mounted() {
-    axios.get("http://localhost:8080/api/ipk").then((response) => {
-      this.tbl_ipk = response.data.ipk
-      console.log(response.data)
+    axios.get("http://localhost:8080/api/persentasekp").then((response) => {
+      this.tbl_persentase = response.data.persentase
+      console.log(response.data.persentase)
       setTimeout(() => {
         $("#datatable").DataTable({
           pageLength: 5,
@@ -271,7 +243,7 @@ export default {
   },
   data() {
     return {
-      tbl_ipk: {},
+      tbl_persentase: {},
       no: 1,
     }
   },
@@ -342,6 +314,26 @@ export default {
           // <-- if confirmed
           this.$router.push({
             name: "editipk",
+            params: { id: id },
+          })
+        }
+      })
+    },
+    ViewExport(id, index) {
+      this.$swal({
+        title: "Edit",
+        text: "Are you sure? ",
+        icon: "warning",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Yes !",
+      }).then((result) => {
+        // <--
+        if (result.value) {
+          // <-- if confirmed
+          this.$router.push({
+            name: "viewtabelkp",
             params: { id: id },
           })
         }

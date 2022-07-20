@@ -57,6 +57,12 @@ $routes->resource('api/pkm', ['controller' => 'Pkm']);
 $routes->resource('api/prodi', ['controller' => 'Prodi']);
 $routes->resource('api/ipk', ['controller' => 'IpkMhs']);
 
+// PersentaseKepuasaan
+$routes->resource('api/persentasekp', ['controller' => 'PersentasekpController']);
+
+// KepuasanLLS
+$routes->resource('api/kepuasanlls', ['controller' => 'KepuasanLLSController']);
+
 $routes->group("api", function ($routes) {
     $routes->post("register", "Register::index");
     $routes->post("login", "Login::index");
