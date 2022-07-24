@@ -224,12 +224,14 @@ import TableToExcel from "@linways/table-to-excel"
 
 export default {
   created() {
+    
     // mengecek user yang login apakah admin atau bukan
     axios
       .get("http://localhost:8080/getuser", {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
+        
       })
       .then((response) => {
         let { status } = response.data

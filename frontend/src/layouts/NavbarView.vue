@@ -14,12 +14,23 @@
             <li class="nav-item d-none d-sm-inline-block">
               <a href="#" class="nav-link"><h6 class="text-white">Contact</h6></a>
             </li>
+            <li class="nav-item d-none d-sm-inline-block">
+              <a href="#" class="nav-link"><h6 class="text-white"></h6></a>
+            </li>
           </ul>
+          
         </nav>
 </template>
 
 <script>
 export default {
+  created(){
+    axios.get("http://localhost:8080/api/profile",{
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+  },
 
 }
 </script>

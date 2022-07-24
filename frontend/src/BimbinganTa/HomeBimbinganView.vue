@@ -19,7 +19,7 @@
             </div>
           </div>
         </div>
-  
+
         <div class="content">
           <div class="container-fluid">
             <div class="row justify-content-center">
@@ -28,27 +28,85 @@
                   <div class="card-header">POSTS</div>
                   <div class="card-body">
                     <vue-topprogress ref="topProgress"></vue-topprogress>
-                     <button @click.prevent="Tambah()" class="btn btn-sm btn-success mr-2">TAMBAH</button>
+                    <button
+                      @click.prevent="Tambah()"
+                      class="btn btn-sm btn-success mr-2"
+                    >
+                      TAMBAH
+                    </button>
+                    <button
+                      @click.prevent="ExportExcel('Bimbingan_TA')"
+                      class="btn btn-sm btn-success mr-2"
+                      id="btnExport"
+                    >
+                      EXPORT
+                    </button>
                     <hr />
 
                     <div class="table-responsive mt-2">
-                      <table id="datatable" class="table table-hover table-bordered display" style="width: 100%;">
+                      <table
+                        id="datatable"
+                        class="table table-hover table-bordered display"
+                        style="width: 100%"
+                        data-cols-width="30,30,30,40,30"
+                      >
                         <thead>
                           <tr>
-                            <th>TAHUN AKADEMIK</th>
-                            <th>NAMA MAHASISWA</th>
-                            <th>JUDUL TA</th>
-                            <th>FILE LAPORAN</th>
+                            <th
+                              data-f-bold="true"
+                              data-fill-color="add8e6"
+                              class="text-center"
+                              data-f-sz="14"
+                              data-a-h="center"
+                              data-a-v="middle"
+                            >
+                              TAHUN AKADEMIK
+                            </th>
+                            <th
+                              data-f-bold="true"
+                              data-fill-color="add8e6"
+                              class="text-center"
+                              data-f-sz="14"
+                              data-a-h="center"
+                              data-a-v="middle"
+                            >
+                              NAMA MAHASISWA
+                            </th>
+                            <th
+                              data-f-bold="true"
+                              data-fill-color="add8e6"
+                              class="text-center"
+                              data-f-sz="14"
+                              data-a-h="center"
+                              data-a-v="middle"
+                            >
+                              JUDUL TA
+                            </th>
+                            <th
+                              data-f-bold="true"
+                              data-fill-color="add8e6"
+                              class="text-center"
+                              data-f-sz="14"
+                              data-a-h="center"
+                              data-a-v="middle"
+                            >
+                              FILE LAPORAN
+                            </th>
                             <th>AKSI</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr v-for="(post, index) in tbl_bimbinganta" :key="post.id">
-                            <td>{{ post.tahun_akademik }}</td>
-                            <td>{{ post.nama_mahasiswa }}</td>
-                            <td>{{ post.judul_ta }}</td>
+                          <tr
+                            v-for="(post, index) in tbl_bimbinganta"
+                            :key="post.id"
+                          >
+                            <td data-b-a-s="thin" data-t="s" data-a-h="center">{{ post.tahun_akademik }}</td>
+                            <td data-b-a-s="thin" data-t="s" data-a-h="center">{{ post.nama_mahasiswa }}</td>
+                            <td data-b-a-s="thin" data-t="s" data-a-h="center">{{ post.judul_ta }}</td>
                             <td>
-                              <a v-bind:href="url + post.files">{{ post.files }}</a>
+                              <a v-bind:href="url + post.files">{{
+                                post.files
+                              }}</a>
                             </td>
                             <!-- <a v-bind:href="url + post.files">
                               <td>{{ post.files }}</td></a
@@ -64,11 +122,19 @@
                                 >EDIT</router-link
                               > -->
                               <div class="d-flex justify-content-start">
-
-                              
-                              <button @click.prevent="Edit(post.id, index)" class="btn btn-sm btn-primary mr-2">EDIT</button>
-                              <button @click.prevent="PostDelete(post.id, index)" class="btn btn-sm btn-danger">HAPUS</button>
-                            </div>
+                                <button
+                                  @click.prevent="Edit(post.id, index)"
+                                  class="btn btn-sm btn-primary mr-2"
+                                >
+                                  EDIT
+                                </button>
+                                <button
+                                  @click.prevent="PostDelete(post.id, index)"
+                                  class="btn btn-sm btn-danger"
+                                >
+                                  HAPUS
+                                </button>
+                              </div>
                             </td>
                           </tr>
                         </tbody>
@@ -103,29 +169,29 @@ import $ from "jquery";
 import "datatables.net";
 import jszip from "jszip";
 window.jszip = jszip;
-
+import TableToExcel from "@linways/table-to-excel";
 export default {
-  
   mounted() {
     axios.get("http://localhost:8080/api/bimbinganta").then((response) => {
       this.tbl_bimbinganta = response.data.data;
-      console.log(response.data.data)
+      console.log(response.data.data);
       setTimeout(() => {
         $("#datatable").DataTable({
-          dom:"Bftrip",
-          buttons:[
-              {
-              extend:"excel",
-              exportOptions:{
-                columns:':visible'
-              }
+          dom: "Bftrip",
+          buttons: [
+            {
+              extend: "excel",
+              exportOptions: {
+                columns: ":visible",
+              },
             },
-            'colvis'
+            "colvis",
           ],
-          columnDefs:[{
-            targers:-1,
-            visible:false
-          }
+          columnDefs: [
+            {
+              targers: -1,
+              visible: false,
+            },
           ],
           lengthMenu: [
             [5, 10, 25, 50, -1],
@@ -135,12 +201,12 @@ export default {
         });
       });
     });
-    this.$refs.topProgress.start()
- 
+    this.$refs.topProgress.start();
+
     // Use setTimeout for demo
     setTimeout(() => {
-      this.$refs.topProgress.done()
-    }, 2000)
+      this.$refs.topProgress.done();
+    }, 2000);
   },
   name: "bimbinganta",
   components: {
@@ -160,77 +226,98 @@ export default {
   //   });
   // },
   methods: {
-    Tambah (){
+    Tambah() {
       this.$swal({
-    title: "Tambah",
-    text: "Are you sure? ",
-    icon: 'warning',
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    confirmButtonText: "Yes !"
-}).then((result) => { // <--
-    if (result.value) { // <-- if confirmed
-       this.$router.push({
-        name : 'createbimbingan',
-       
-    });
-    }
-});
+        title: "Tambah",
+        text: "Are you sure? ",
+        icon: "warning",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Yes !",
+      }).then((result) => {
+        // <--
+        if (result.value) {
+          // <-- if confirmed
+          this.$router.push({
+            name: "createbimbingan",
+          });
+        }
+      });
     },
     PostDelete(id, index) {
-       this.$swal({
-      title: 'Are you sure?',
-  text: "You won't be able to revert this!",
-  icon: 'warning',
-  showCancelButton: true,
-  confirmButtonColor: '#3085d6',
-  cancelButtonColor: '#d33',
-  confirmButtonText: 'Yes, delete it!'
-}).then((result) => { // <--
-    if (result.isConfirmed) { // <-- if confirmed
-        axios
-        .delete(`http://localhost:8080/api/post/${id}`)
-        .then((response) => {
-          this.$swal(
-          'Deleted!',
-      'Your file has been deleted.',
-      'success'
-        )
-          this.posts.splice(index, 1);
-          console.log(response);
-        })
-        .catch((error) => {
-          this.$swal(
-          'Deleted!',
-      'Your file has not been deleted.',
-      'error'
-        )
-          console.log(error.response);
-        });
-        
-    }
-});
-      
+      this.$swal({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+      }).then((result) => {
+        // <--
+        if (result.isConfirmed) {
+          // <-- if confirmed
+          axios
+            .delete(`http://localhost:8080/api/post/${id}`)
+            .then((response) => {
+              this.$swal("Deleted!", "Your file has been deleted.", "success");
+              this.posts.splice(index, 1);
+              console.log(response);
+            })
+            .catch((error) => {
+              this.$swal(
+                "Deleted!",
+                "Your file has not been deleted.",
+                "error"
+              );
+              console.log(error.response);
+            });
+        }
+      });
     },
     Edit(id, index) {
-       this.$swal({
-    title: "Edit",
-    text: "Are you sure? ",
-    icon: 'warning',
-    type: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    confirmButtonText: "Yes !"
-}).then((result) => { // <--
-    if (result.value) { // <-- if confirmed
-       this.$router.push({
-        name : 'edit',
-        params: { id: id },
-    });
-    }
-});
-      
+      this.$swal({
+        title: "Edit",
+        text: "Are you sure? ",
+        icon: "warning",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Yes !",
+      }).then((result) => {
+        // <--
+        if (result.value) {
+          // <-- if confirmed
+          this.$router.push({
+            name: "edit",
+            params: { id: id },
+          });
+        }
+      });
+    },
+    ExportExcel(nama = "") {
+      this.$swal({
+        title: "Export",
+        text: "Are you sure? ",
+        icon: "warning",
+        type: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Yes !",
+      }).then((result) => {
+        // <--
+        if (result.value) {
+          // <-- if confirmed
+
+          TableToExcel.convert(document.getElementById("datatable"), {
+            name: nama + ".xlsx",
+            sheet: {
+              name: nama,
+            },
+          });
+        }
+      });
     },
   },
 };
