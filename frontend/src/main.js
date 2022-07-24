@@ -5,6 +5,8 @@ import axios from "axios";
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import vueTopprogress from 'vue-top-progress';
+import VueSession from 'vue-session'
+Vue.use(VueSession)
 
 Vue.use(vueTopprogress)
 

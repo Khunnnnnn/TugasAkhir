@@ -1,19 +1,36 @@
 <template>
   <aside class="main-sidebar sidebar-dark-secondary elevation-4">
-    <router-link to="/dashboard" style="text-decoration: none" class="brand-link bg-gradient-blue text-white"> <span class="brand-text font-weight-bold mr-5 ml-5">Admin LKPS</span></router-link>
+    <router-link
+      to="/dashboard"
+      style="text-decoration: none"
+      class="brand-link bg-gradient-blue text-white"
+    >
+      <span class="brand-text font-weight-bold mr-5 ml-5"
+        >Admin LKPS</span
+      ></router-link
+    >
     <div class="sidebar">
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="img/avatar.svg" class="img-circle elevation-2" alt="User Image" />
+          <img
+            src="img/avatar.svg"
+            class="img-circle elevation-2"
+            alt="User Image"
+          />
         </div>
         <div class="info">
           <span class="brand-text font-italic font-weight-bolder text-white"
-            >Kelompok 2</span
-          >
+            >{{users.email}}
+          </span>
         </div>
       </div>
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul
+          class="nav nav-pills nav-sidebar flex-column"
+          data-widget="treeview"
+          role="menu"
+          data-accordion="false"
+        >
           <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="fas fa-user nav-icon"></i>
@@ -144,20 +161,41 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from "axios";
 
 export default {
+  created() {
+    axios
+      .get("http://localhost:8080/api/profile", {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+      .then((response) => {
+        this.users = response.data;
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
+  },
   data() {
     return {
-      post: {},
+      users: null,
       errors: [],
+    };
+  },
+  beforeCreate: function () {
+    if (!this.$session.exists()) {
+      this.$router.push("/");
     }
+    this.$session.getAll();
   },
   methods: {
     logout() {
-      localStorage.removeItem('token');
+      localStorage.removeItem("token");
 
-      this.$router.push('/');
+      this.$router.push("/");
     },
   },
 };

@@ -102,7 +102,7 @@ window.jszip = jszip;
 
 export default {
   created(){
-    axios.get("http://localhost:8080/getuser",{
+    axios.get("http://localhost:8080/profile",{
         headers: {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },

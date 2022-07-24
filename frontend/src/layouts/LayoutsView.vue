@@ -107,10 +107,22 @@ import SidebarViewVue from "../layouts/SidebarView.vue"
 import FooterViewVue from "../layouts/FooterView.vue"
 import PreloaderViewVue from "../layouts/PreloaderView.vue"
 export default {
+  created(){
+    axios.get("http://localhost:8080/api/profile",{
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      })
+  },
   name: "Dashboard",
   data() {
     return {
       token: "",
+    }
+  },
+  beforeCreate: function () {
+    if (!this.$session.exists()) {
+      this.$router.push('/')
     }
   },
   components: {

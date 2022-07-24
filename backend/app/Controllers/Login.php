@@ -43,6 +43,7 @@ class Login extends ResourceController
             'iat' => $iat,
             'exp' => $exp,
             'nidn' => $nidn,
+            'email'=>$user['email'],
             'status' => $user['status_level']
         ];
 

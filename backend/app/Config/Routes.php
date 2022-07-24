@@ -67,6 +67,7 @@ $routes->group("api", function ($routes) {
     $routes->post("register", "Register::index");
     $routes->post("login", "Login::index");
     $routes->get("profile", "Profile::index", ['filter' => 'authFilter']);
+    $routes->get("users", "Users::index", ['filter' => 'authFilter']);
 });
 /*
  * --------------------------------------------------------------------
