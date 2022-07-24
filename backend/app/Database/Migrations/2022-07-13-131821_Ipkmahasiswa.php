@@ -20,7 +20,7 @@ class Ipkmahasiswa extends Migration
                 'constraint'     => 11,
                 'unsigned'       => TRUE,
                 'null' => true
-                           ],
+            ],
             'tahun' => [
                 'type'           => 'VARCHAR',
                 'constraint'     => '255',
@@ -44,7 +44,7 @@ class Ipkmahasiswa extends Migration
         ]);
         $this->forge->addKey('id', TRUE);
         $this->forge->addForeignKey('prodi_id', 'prodis', 'id');
-        $this->forge->createTable('ipkmahasiswas',true);
+        $this->forge->createTable('ipkmahasiswas', true);
     }
 
     public function down()

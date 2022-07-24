@@ -20,7 +20,8 @@
         </div>
         <div class="info">
           <span class="brand-text font-italic font-weight-bolder text-white"
-            >{{users.email}}
+            >{{users.email}} <br>
+            Roles : {{users.status}}
           </span>
         </div>
       </div>
@@ -31,7 +32,7 @@
           role="menu"
           data-accordion="false"
         >
-          <li class="nav-item">
+          <li v-if="users.status===superadmin" class="nav-item" >
             <a href="#" class="nav-link">
               <i class="fas fa-user nav-icon"></i>
               <p>
@@ -39,7 +40,7 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            <ul class="nav nav-treeview">
+            <ul  class="nav nav-treeview" >
               <li class="nav-item">
                 <router-link to="/admin" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -48,7 +49,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" v-if="users.status==='dosen' || users.status==='admin'" >
             <a href="#" class="nav-link">
               <i class="fas fa-users nav-icon"></i>
               <p>
@@ -131,7 +132,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <li class="nav-item" >
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -181,7 +182,7 @@ export default {
   },
   data() {
     return {
-      users: null,
+      users: {},
       errors: [],
     };
   },
@@ -197,6 +198,7 @@ export default {
 
       this.$router.push("/");
     },
+    
   },
 };
 </script>

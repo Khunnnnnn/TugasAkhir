@@ -37,6 +37,7 @@ class KepuasaanLulusan extends Migration
         $this->forge->addKey('id', TRUE);
         $this->forge->addForeignKey('prodi_id', 'prodis', 'id');
         $this->forge->createTable('kepuasaanlulusan', true);
+        
     }
 
     public function down()
