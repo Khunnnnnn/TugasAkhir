@@ -32,7 +32,7 @@
           role="menu"
           data-accordion="false"
         >
-          <li v-if="users.status===superadmin" class="nav-item" >
+          <li v-if="users.status==='superadmin'" class="nav-item" >
             <a href="#" class="nav-link">
               <i class="fas fa-user nav-icon"></i>
               <p>
@@ -59,9 +59,25 @@
             </a>
             <ul class="ml-auto nav nav-treeview">
               <li class="nav-item">
+                <router-link to="/dosentetap" class="nav-link">
+                  <i class="ml-auto far fa-circle nav-icon"></i>
+                  <p>Dosen Tetap</p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="ml-auto nav nav-treeview">
+              <li class="nav-item">
                 <router-link to="/penelitian" class="nav-link">
                   <i class="ml-auto far fa-circle nav-icon"></i>
                   <p>Penelitian</p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="ml-auto nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/rekognisidosen" class="nav-link">
+                  <i class="ml-auto far fa-circle nav-icon"></i>
+                  <p>Rekognisi Dosen</p>
                 </router-link>
               </li>
             </ul>
@@ -70,6 +86,43 @@
                 <router-link to="/bimbinganta" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Bimbingan TA</p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item nav-icon">
+                  <h6 class="text-white">Lainnya</h6>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/profiledosen" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Profile Dosen</p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/sertifkompdosen" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sertifikat Dosen</p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/detildosens" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Detil Dosen</p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/riwayatpendidikandosen" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Riwayat Pendidikan</p>
                 </router-link>
               </li>
             </ul>

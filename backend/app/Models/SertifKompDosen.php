@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class UserModel extends Model
+class SertifKompDosen extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'users';
+    protected $table            = 'sertifkompdosens';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nidn', 'email', 'password', 'confirm_password'];
+    protected $allowedFields    = ['nama_sertif', 'id_dosen', 'keterangan', 'file_bukti'];
 
     // Dates
     protected $useTimestamps = false;
@@ -40,28 +40,15 @@ class UserModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    function getDosen()
-    {
-        $name = 'dosen';
-        $db      = \Config\Database::connect();
-        $builder =$db->table('users');
-        $builder->select('*');
-        $builder->where('status_level', $name);
-        $query = $builder->get();
-        return $query->getResult();
-    }
-
-    function getDosentetap()
+    function getSertif()
     {
         $db      = \Config\Database::connect();
-        $builder = $db->table('ripendosens');
+        $name = 'id_dosen';
+        $builder = $db->table('sertifkompdosens');
         $builder->select('*');
-        $builder->join('users', 'users.id = ripendosens.id_dosen');
-        $builder->join('detildosens', 'detildosens.id = ripendosens.id_dosen');
-        $builder->join('sertifkompdosens', 'sertifkompdosens.id = ripendosens.id_dosen');
+        $builder->join('users', 'users.id = sertifkompdosens.id_dosen');
         $query = $builder->get();
         return $query->getResultArray();
 
     }
-    
 }

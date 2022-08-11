@@ -102,6 +102,62 @@ const routes = [
     }
   },
   {
+    path: "/sertifkompdosen",
+    name: "sertifkompdosen",
+    component: () => import(/* webpackChunkName: "about" */ "../SertifikatDosen/SertifikatDosenView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/createsertif",
+    name: "createsertif",
+    component: () => import(/* webpackChunkName: "about" */ "../SertifikatDosen/CreateSertifikatDosenView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/profiledosen",
+    name: "profiledosen",
+    component: () => import(/* webpackChunkName: "about" */ "../ProfileDosen/ProfileDosenView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/detildosens",
+    name: "detildosens",
+    component: () => import(/* webpackChunkName: "about" */ "../DetilDosen/DetilDosenView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/riwayatpendidikandosen",
+    name: "riwayatpendidikandosen",
+    component: () => import(/* webpackChunkName: "about" */ "../RiwayatDosen/RiwayatDosenView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/rekognisidosen",
+    name: "rekognisidosen",
+    component: () => import(/* webpackChunkName: "about" */ "../RekognisiDosen/RekognisiDosenView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/dosentetap",
+    name: "dosentetap",
+    component: () => import(/* webpackChunkName: "about" */ "../DosenTetap/DosenTetapView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
     path: "/createbimbingan",
     name: "createbimbingan",
     component: () => import(/* webpackChunkName: "about" */ "../BimbinganTa/CreateBimbinganView.vue"),

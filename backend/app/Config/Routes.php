@@ -41,6 +41,11 @@ $routes->get("getuser", "Profile::getuser");
 $routes->resource('api/post', ['controller' => 'Post']);
 $routes->resource('api/penelitian', ['controller' => 'Penelitian']);
 $routes->resource('api/bimbinganta', ['controller' => 'BimbinganTa']);
+$routes->resource('api/sertifikatdosen', ['controller' => 'SertifikatDosen']);
+$routes->resource('api/detildosen', ['controller' => 'DetilDosen']);
+$routes->resource('api/ripendosen', ['controller' => 'RipenDosens']);
+$routes->resource('api/rekogdosen', ['controller' => 'RekogDosen']);
+$routes->resource('api/dostep', ['controller' => 'DosenTetap']);
 $routes->resource('api/mahasiswa', ['controller' => 'Mahasiswa']);
 $routes->resource('api/matakuliah', ['controller' => 'MataKuliah']);
 $routes->resource('api/kepuasanmahasiswa', ['controller' => 'KepuasanMahasiswa']);
@@ -65,6 +70,7 @@ $routes->resource('api/kepuasanlls', ['controller' => 'KepuasanLLSController']);
 
 $routes->group("api", function ($routes) {
     $routes->post("register", "Register::index");
+    $routes->get("profiledosen", "ProfileDosen::index");
     $routes->post("login", "Login::index");
     $routes->get("profile", "Profile::index", ['filter' => 'authFilter']);
     $routes->get("users", "Users::index", ['filter' => 'authFilter']);

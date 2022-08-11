@@ -28,6 +28,71 @@ class User extends Migration
                 'unique' => true,
                 'constraint' => '255',
             ],
+            'nama_dosen' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'nik' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'tempat_lahir' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'tanggal_lahir' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'jenis_kelamin' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'status_perkawinan' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'agama' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'golongan' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'pangkat' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'jabatan_akademik' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'alamat' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'no_telp' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
+            'status_dosen' => [
+                'type' => 'VARCHAR',
+                'constraint' => '255',
+                'null' => true,
+            ],
             'password' => [
                 'type' => 'VARCHAR',
                 'constraint' => '255',
