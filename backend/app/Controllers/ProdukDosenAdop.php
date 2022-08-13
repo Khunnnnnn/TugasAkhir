@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-use App\Models\UserModel;
+use App\Models\ProdukDosen;
 use CodeIgniter\RESTful\ResourceController;
 
-class DosenTetap extends ResourceController
+class ProdukDosenAdop extends ResourceController
 {
     /**
      * Return an array of resource objects, themselves in array format
@@ -15,8 +15,8 @@ class DosenTetap extends ResourceController
     public function index()
     {
         //
-        $dosen = new UserModel;
-        return $this->respond(['dostap' => $dosen->getDosentetap()], 200);
+        $dosen = new ProdukDosen();
+        return $this->respond(['produk' => $dosen->getProduk()], 200);
     }
 
     /**

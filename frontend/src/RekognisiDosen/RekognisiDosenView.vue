@@ -61,6 +61,17 @@
                               data-a-h="center"
                               data-a-v="middle"
                             >
+                              NAMA DOSEN
+                            </th>
+                            <th
+                              data-f-bold="true"
+                              data-fill-color="add8e6"
+                              class="text-center"
+                              data-f-sz="14"
+                              rowspan="2"
+                              data-a-h="center"
+                              data-a-v="middle"
+                            >
                               REKOGNISI
                             </th>
                             <th
@@ -158,6 +169,9 @@
                             v-for="(post, index) in rekognisidosens"
                             :key="post.id"
                           >
+                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
+                              {{ post.nama_dosen }}
+                            </td>
                             <td data-b-a-s="thin" data-t="s" data-a-h="center">
                               {{ post.rekognisi }}
                             </td>
@@ -288,7 +302,7 @@ export default {
       this.$refs.topProgress.done();
     }, 2000);
   },
-  name: "bimbinganta",
+  name: "rekognisidosen",
   components: {
     "nav-bar": NavbarView,
     "side-bar": SidebarView,
@@ -319,7 +333,7 @@ export default {
         if (result.value) {
           // <-- if confirmed
           this.$router.push({
-            name: "createsertif",
+            name: "createrekognisidosen",
           });
         }
       });

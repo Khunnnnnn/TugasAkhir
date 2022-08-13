@@ -8,7 +8,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0">Create Sertifikat Page</h1>
+                <h1 class="m-0">Create Luaran Dosen Page</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -29,16 +29,16 @@
                   <div class="card-body">
                     <form @submit.prevent="PostStore">
                       <div class="form-group">
-                        <label>Nama Sertifikat</label>
+                        <label>Judul</label>
                         <input
                           type="text"
                           class="form-control"
-                          :class="errors.nama_sertifikat ? 'is-invalid' : ''"
+                          :class="errors.judul ? 'is-invalid' : ''"
                           placeholder="Masukkan Title"
-                          v-model="post.nama_sertifikat"
+                          v-model="post.judul"
                         />
                         <div class="invalid-feedback">
-                          {{ errors.nama_sertifikat }}
+                          {{ errors.judul }}
                         </div>
                       </div>
 
@@ -57,15 +57,33 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label>File</label> <br />
+                        <label>Tahun</label>
                         <input
-                          type="file"
-                          @change="onChange"
-                          class=""
-                          :class="errors.files ? 'is-invalid' : ''"
+                          type="text"
+                          class="form-control"
+                          :class="errors.tahun ? 'is-invalid' : ''"
+                          rows="5"
+                          placeholder="Masukkan Konten"
+                          v-model="post.tahun"
                         />
                         <div class="invalid-feedback">
-                          {{ errors.files }}
+                          {{ errors.tahun }}
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Jenis Luaran</label>
+                        <select
+                          class="form-select" :class="errors.tahun ? 'is-invalid' : ''"
+                          aria-label="Default select example" v-model="post.jenis"
+                        >
+                          <!-- <option selected>Open this select menu</option> -->
+                          <option value="hki1">Hki Paten</option>
+                          <option value="hki2">Hki Hak Cipta</option>
+                          <option value="teknologi">Teknologi</option>
+                          <option value="buku">Buku</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          {{ errors.tahun }}
                         </div>
                       </div>
                       <button type="submit" class="btn btn-md btn-success mr-2">
@@ -96,8 +114,8 @@ export default {
   data() {
     return {
       post: {
-        nama_sertifikat: "",
-        keterangan: "",
+        // nama_sertifikat: "",
+        // keterangan: "",
       },
       errors: {},
       test: 10,
@@ -105,29 +123,26 @@ export default {
     };
   },
   methods: {
-    onChange(e) {
-      console.log(e.target.files[0]);
-      this.files = e.target.files[0];
-    },
     PostStore(e) {
       // const headers = {
       //   Authorization: "Bearer my-token",
       //   "My-Custom-Header": "foobar",
       // };
       let formData = new FormData();
-      formData.append("nama_sertifikat", this.post.nama_sertifikat);
+      formData.append("judul", this.post.judul);
       formData.append("keterangan", this.post.keterangan);
-      formData.append("files", this.files);
+      formData.append("tahun", this.post.tahun);
+      formData.append("jenis_luaran", this.post.jenis);
       axios
-        .post("http://localhost:8080/api/sertifikatdosen", formData,{
+        .post("http://localhost:8080/api/luarandosen", formData, {
           headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
         })
         .then((response) => {
           this.$swal("Sukses!", "Your file has been saved.", "success");
           this.$router.push({
-            name: "sertifkompdosen",
+            name: "luarandosen",
           });
           console.log(response.data);
         })

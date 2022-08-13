@@ -40,6 +40,7 @@ class Login extends ResourceController
         $payload = [
             'iss' => 'ci4-jwt',
             'sub' => 'logintoken',
+            "uid" => $user['id'],
             'iat' => $iat,
             'exp' => $exp,
             'nidn' => $nidn,

@@ -8,7 +8,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0">Profile Dosen Page</h1>
+                <h1 class="m-0">Luaran Produk Dosen Page</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -29,7 +29,13 @@
                   <div class="card-body">
                     <vue-topprogress ref="topProgress"></vue-topprogress>
                     <button
-                      @click.prevent="ExportExcel('Bimbingan_TA')"
+                      @click.prevent="Tambah()"
+                      class="btn btn-sm btn-success mr-2"
+                    >
+                      TAMBAH
+                    </button>
+                    <button
+                      @click.prevent="ExportExcel('Sertifikat')"
                       class="btn btn-sm btn-success mr-2"
                       id="btnExport"
                     >
@@ -54,7 +60,7 @@
                               data-a-h="center"
                               data-a-v="middle"
                             >
-                              NAMA DOSEN
+                              LUARAN PENELITIAN DAN PKM
                             </th>
                             <th
                               data-f-bold="true"
@@ -64,7 +70,7 @@
                               data-a-h="center"
                               data-a-v="middle"
                             >
-                              NIDN
+                              TAHUN
                             </th>
                             <th
                               data-f-bold="true"
@@ -74,180 +80,24 @@
                               data-a-h="center"
                               data-a-v="middle"
                             >
-                              NIK
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              TEMPAT LAHIR
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              TANGGAL LAHIR
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              JENIS KELAMIN
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              STATUS PERKAWINAN
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              AGAMA
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              GOLONGAN
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              PANGKAT
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              JABATAN AKADEMIK
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              ALAMAT
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              NO TELEPON
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              EMAIL
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              STATUS DOSEN
+                              KETERANGAN
                             </th>
                             <th>AKSI</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr v-for="(post, index) in users" :key="post.id">
+                          <tr
+                            v-for="(post, index) in luarandosens"
+                            :key="post.id"
+                          >
                             <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.nama_dosen }}
+                              {{ post.judul }}
                             </td>
                             <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.nidn }}
+                              {{ post.tahun }}
                             </td>
                             <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.nik }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.tempat_lahir }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.tanggal_lahir }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.jenis_kelamin }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.status_perkawinan }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.agama }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.golongan }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.pangkat }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.jabatan_akademik }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.alamat }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.no_telp }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.email }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              <div v-if="post.status_dosen == 'dostap'" vl>
-                                {{ "Dosen Tetap" }}
-                              </div>
-                              <div v-else>{{"Tidak Dosen Tetap"}}</div>
+                              {{ post.keterangan }}
                             </td>
                             <!-- <a v-bind:href="url + post.files">
                               <td>{{ post.files }}</td></a
@@ -313,13 +163,15 @@ window.jszip = jszip;
 import TableToExcel from "@linways/table-to-excel";
 export default {
   mounted() {
-    axios.get("http://localhost:8080/api/profiledosen").then((response) => {
-      this.users = response.data.user;
+    axios.get("http://localhost:8080/api/luarandosenbuku").then((response) => {
+      this.luarandosens = response.data.buku;
       console.log(response.data);
       setTimeout(() => {
         $("#datatable").DataTable({
           dom: "Bftrip",
-          buttons: ["colvis"],
+          buttons: [
+            "colvis",
+          ],
           lengthMenu: [
             [5, 10, 25, 50, -1],
             [5, 10, 25, 50, "All"],
@@ -335,7 +187,7 @@ export default {
       this.$refs.topProgress.done();
     }, 2000);
   },
-  name: "profiledosen",
+  name: "bimbinganta",
   components: {
     "nav-bar": NavbarView,
     "side-bar": SidebarView,
@@ -343,7 +195,8 @@ export default {
   },
   data() {
     return {
-      users: [],
+      luarandosens: [],
+      url: "http://localhost:8080/dokumentb8/",
     };
   },
   // created() {
@@ -366,7 +219,7 @@ export default {
         if (result.value) {
           // <-- if confirmed
           this.$router.push({
-            name: "createbimbingan",
+            name: "createsertif",
           });
         }
       });
@@ -385,7 +238,7 @@ export default {
         if (result.isConfirmed) {
           // <-- if confirmed
           axios
-            .delete(`http://localhost:8080/api/post/${id}`)
+            .delete(`http://localhost:8080/api/sertifkompdosen/${id}`)
             .then((response) => {
               this.$swal("Deleted!", "Your file has been deleted.", "success");
               this.posts.splice(index, 1);
@@ -416,7 +269,7 @@ export default {
         if (result.value) {
           // <-- if confirmed
           this.$router.push({
-            name: "editprofile",
+            name: "edit",
             params: { id: id },
           });
         }

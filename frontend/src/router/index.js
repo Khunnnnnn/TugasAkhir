@@ -150,9 +150,89 @@ const routes = [
     }
   },
   {
+    path: "/createrekognisidosen",
+    name: "createrekognisidosen",
+    component: () => import(/* webpackChunkName: "about" */ "../RekognisiDosen/CreateRekogDosenView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/serkom",
+    name: "serkom",
+    component: () => import(/* webpackChunkName: "about" */ "../SertifKomp/SertifKompDosenView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
     path: "/dosentetap",
     name: "dosentetap",
     component: () => import(/* webpackChunkName: "about" */ "../DosenTetap/DosenTetapView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/dosentidaktetap",
+    name: "dosentidaktetap",
+    component: () => import(/* webpackChunkName: "about" */ "../DosenTidakTetap/DosenTidakTetapView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/produkdosen",
+    name: "produkdosen",
+    component: () => import(/* webpackChunkName: "about" */ "../ProdukDosen/ProdukDosenView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/luarandosen",
+    name: "luarandosen",
+    component: () => import(/* webpackChunkName: "about" */ "../LuaranDosen/AllLuaranDosen.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/createluarandosen",
+    name: "createluarandosen",
+    component: () => import(/* webpackChunkName: "about" */ "../LuaranDosen/CreateLuaranDosenView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/luarandosenhkia",
+    name: "luarandosenhkia",
+    component: () => import(/* webpackChunkName: "about" */ "../LuaranDosen/LuaranDosenHkiAView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/luarandosenhkib",
+    name: "luarandosenhkib",
+    component: () => import(/* webpackChunkName: "about" */ "../LuaranDosen/LuaranDosenHkiBView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/luarandosenteknologi",
+    name: "luarandosenteknologi",
+    component: () => import(/* webpackChunkName: "about" */ "../LuaranDosen/LuaranDosenHkiTeknologi.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/luarandosenbuku",
+    name: "luarandosenbuku",
+    component: () => import(/* webpackChunkName: "about" */ "../LuaranDosen/LuaranDosenHkiBuku.vue"),
     meta: {
       requiresAuth: true,
     }

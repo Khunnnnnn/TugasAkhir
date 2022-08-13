@@ -8,6 +8,7 @@ use App\Models\UserModel;
 use Firebase\JWT\JWT;
 use Exception;
 use Firebase\JWT\Key;
+
 class Profile extends ResourceController
 {
     /**
@@ -20,14 +21,15 @@ class Profile extends ResourceController
     {
         $key = getenv('TOKEN_SECRET');
         $header = $this->request->getServer('HTTP_AUTHORIZATION');
-        if(!$header) return $this->failUnauthorized('Token Required');
+        if (!$header) return $this->failUnauthorized('Token Required');
         $token = explode(' ', $header)[1];
         try {
             $decoded = JWT::decode($token, new Key($key, "HS256"));
             $response = [
-                                'nidn' => $decoded->nidn,
-                                'email' =>$decoded->email,
-                                'status' => $decoded->status
+                'id' => $decoded->uid,
+                'nidn' => $decoded->nidn,
+                'email' => $decoded->email,
+                'status' => $decoded->status
             ];
             return $this->respond($response);
         } catch (\Throwable $th) {

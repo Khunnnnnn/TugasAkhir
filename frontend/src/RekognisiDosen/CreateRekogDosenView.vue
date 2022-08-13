@@ -8,7 +8,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0">Create Sertifikat Page</h1>
+                <h1 class="m-0">Create Rekognisi Dosen Page</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -29,31 +29,78 @@
                   <div class="card-body">
                     <form @submit.prevent="PostStore">
                       <div class="form-group">
-                        <label>Nama Sertifikat</label>
+                        <label>Rekognisi</label>
                         <input
                           type="text"
                           class="form-control"
-                          :class="errors.nama_sertifikat ? 'is-invalid' : ''"
+                          :class="errors.rekognisi ? 'is-invalid' : ''"
                           placeholder="Masukkan Title"
-                          v-model="post.nama_sertifikat"
+                          v-model="post.rekognisi"
                         />
                         <div class="invalid-feedback">
-                          {{ errors.nama_sertifikat }}
+                          {{ errors.rekognisi }}
                         </div>
                       </div>
 
                       <div class="form-group">
-                        <label>Keterangan</label>
+                        <label>Bidang Keahlian</label>
                         <input
                           type="text"
                           class="form-control"
-                          :class="errors.keterangan ? 'is-invalid' : ''"
+                          :class="errors.bidang_keahlian ? 'is-invalid' : ''"
                           rows="5"
                           placeholder="Masukkan Konten"
-                          v-model="post.keterangan"
+                          v-model="post.bidang_keahlian"
                         />
                         <div class="invalid-feedback">
-                          {{ errors.keterangan }}
+                          {{ errors.bidang_keahlian }}
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Deskripsi Bukti</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          :class="errors.deskripsi_bukti ? 'is-invalid' : ''"
+                          rows="5"
+                          placeholder="Masukkan Konten"
+                          v-model="post.deskripsi_bukti"
+                        />
+                        <div class="invalid-feedback">
+                          {{ errors.deskripsi_bukti }}
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Tahun</label>
+                        <input
+                          type="text"
+                          class="form-control"
+                          :class="errors.tahun ? 'is-invalid' : ''"
+                          rows="5"
+                          placeholder="Masukkan Konten"
+                          v-model="post.tahun"
+                        />
+                        <div class="invalid-feedback">
+                          {{ errors.tahun }}
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label>Tingkat</label>
+                        <select
+                          class="form-select"
+                          aria-label="Default select example"
+                          :class="errors.tingkat ? 'is-invalid' : ''"
+                          rows="5"
+                          placeholder="Masukkan Konten"
+                          v-model="post.tingkat"
+                        >
+                          <option selected>Open this select menu</option>
+                          <option value="wilayah">Wilayah</option>
+                          <option value="nasional">Nasional</option>
+                          <option value="internasional">Internasional</option>
+                        </select>
+                        <div class="invalid-feedback">
+                          {{ errors.tingkat }}
                         </div>
                       </div>
                       <div class="form-group">
@@ -96,8 +143,8 @@ export default {
   data() {
     return {
       post: {
-        nama_sertifikat: "",
-        keterangan: "",
+        // nama_sertifikat: "",
+        // keterangan: "",
       },
       errors: {},
       test: 10,
@@ -115,19 +162,22 @@ export default {
       //   "My-Custom-Header": "foobar",
       // };
       let formData = new FormData();
-      formData.append("nama_sertifikat", this.post.nama_sertifikat);
-      formData.append("keterangan", this.post.keterangan);
+      formData.append("rekognisi", this.post.rekognisi);
+      formData.append("bidang_keahlian", this.post.bidang_keahlian);
+      formData.append("deskripsi_bukti", this.post.deskripsi_bukti);
+      formData.append("tingkat", this.post.tingkat);
+      formData.append("tahun", this.post.tahun);
       formData.append("files", this.files);
       axios
-        .post("http://localhost:8080/api/sertifikatdosen", formData,{
+        .post("http://localhost:8080/api/rekogdosen", formData, {
           headers: {
-          Authorization: "Bearer " + localStorage.getItem("token"),
-        },
+            Authorization: "Bearer " + localStorage.getItem("token"),
+          },
         })
         .then((response) => {
           this.$swal("Sukses!", "Your file has been saved.", "success");
           this.$router.push({
-            name: "sertifkompdosen",
+            name: "rekognisidosen",
           });
           console.log(response.data);
         })

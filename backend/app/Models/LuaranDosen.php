@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class SertifKompDosen extends Model
+class LuaranDosen extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'sertifkompdosens';
+    protected $table            = 'luarandosens';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_sertifikat', 'id_dosen', 'keterangan', 'files'];
+    protected $allowedFields    = ['judul','keterangan','tahun','jenis_luaran'];
 
     // Dates
     protected $useTimestamps = false;
@@ -39,15 +39,45 @@ class SertifKompDosen extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-    function getSertif()
+    function getHkiA()
     {
         $db      = \Config\Database::connect();
-        $name = 'id_dosen';
-        $builder = $db->table('sertifkompdosens');
+        $name = 'hki1';
+        $builder = $db->table('luarandosens');
         $builder->select('*');
-        $builder->join('users', 'users.id = sertifkompdosens.id_dosen');
+        $builder->where('jenis_luaran', $name);
         $query = $builder->get();
         return $query->getResultArray();
     }
+    function getHkiB()
+    {
+        $db      = \Config\Database::connect();
+        $name = 'hki2';
+        $builder = $db->table('luarandosens');
+        $builder->select('*');
+        $builder->where('jenis_luaran', $name);
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    function getTeknologi()
+    {
+        $db      = \Config\Database::connect();
+        $name = 'teknologi';
+        $builder = $db->table('luarandosens');
+        $builder->select('*');
+        $builder->where('jenis_luaran', $name);
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    function getBuku()
+    {
+        $db      = \Config\Database::connect();
+        $name = 'buku';
+        $builder = $db->table('luarandosens');
+        $builder->select('*');
+        $builder->where('jenis_luaran', $name);
+        $query = $builder->get();
+        return $query->getResultArray();
+    }
+    
 }

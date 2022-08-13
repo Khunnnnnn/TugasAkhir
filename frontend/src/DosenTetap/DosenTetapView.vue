@@ -311,7 +311,7 @@ import TableToExcel from "@linways/table-to-excel";
 export default {
   mounted() {
     axios.get("http://localhost:8080/api/dostep").then((response) => {
-      this.users = response.data.dostep;
+      this.users = response.data.dostap;
       console.log(response.data);
       setTimeout(() => {
         $("#datatable").DataTable({

@@ -67,6 +67,14 @@
             </ul>
             <ul class="ml-auto nav nav-treeview">
               <li class="nav-item">
+                <router-link to="/dosentidaktetap" class="nav-link">
+                  <i class="ml-auto far fa-circle nav-icon"></i>
+                  <p>Dosen Tidak Tetap</p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="ml-auto nav nav-treeview">
+              <li class="nav-item">
                 <router-link to="/penelitian" class="nav-link">
                   <i class="ml-auto far fa-circle nav-icon"></i>
                   <p>Penelitian</p>
@@ -78,6 +86,46 @@
                 <router-link to="/rekognisidosen" class="nav-link">
                   <i class="ml-auto far fa-circle nav-icon"></i>
                   <p>Rekognisi Dosen</p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="ml-auto nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/produkdosen" class="nav-link">
+                  <i class="ml-auto far fa-circle nav-icon"></i>
+                  <p>Produk/Jasa DTPS Yang Diadopsi oleh Industri/Masyarakat </p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="ml-auto nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/luarandosenhkia" class="nav-link">
+                  <i class="ml-auto far fa-circle nav-icon"></i>
+                  <p>Luaran Dosen Hki A </p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="ml-auto nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/luarandosenhkib" class="nav-link">
+                  <i class="ml-auto far fa-circle nav-icon"></i>
+                  <p>Luaran Dosen Hki B </p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="ml-auto nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/luarandosenteknologi" class="nav-link">
+                  <i class="ml-auto far fa-circle nav-icon"></i>
+                  <p>Luaran Dosen Teknologi </p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="ml-auto nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/luarandosenbuku" class="nav-link">
+                  <i class="ml-auto far fa-circle nav-icon"></i>
+                  <p>Luaran Dosen Buku </p>
                 </router-link>
               </li>
             </ul>
@@ -123,6 +171,22 @@
                 <router-link to="/riwayatpendidikandosen" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Riwayat Pendidikan</p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/serkom" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Sertifikat Kompetensi</p>
+                </router-link>
+              </li>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <router-link to="/luarandosen" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Luaran Penelitian/Pkm Lainnya Oleh DTPS</p>
                 </router-link>
               </li>
             </ul>

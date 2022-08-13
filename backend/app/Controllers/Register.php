@@ -37,7 +37,9 @@ class Register extends ResourceController
             $userData = [
                 'nidn' => $this->request->getVar('nidn'),
                 'email' => $this->request->getVar('email'),
-                'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT)
+                'password' => password_hash($this->request->getVar('password'), PASSWORD_BCRYPT),
+                'status_level' => $this->request->getVar('status_level'),
+
             ];
             $userModel->save($userData);
 

@@ -54,11 +54,29 @@ class UserModel extends Model
     function getDosentetap()
     {
         $db      = \Config\Database::connect();
+        $name = 'dostap';
+        $builder = $db->table('users');
+        $builder->select('*');
+        $builder->join('ripendosens', 'ripendosens.id_dosen = users.id');
+        $builder->join('detildosens', 'detildosens.id_dosen = users.id');
+        $builder->join('sertifkompdosens', 'sertifkompdosens.id_dosen = users.id');
+        $builder->where('users.status_dosen', $name);
+        $query = $builder->get();
+        return $query->getResultArray();
+
+    }
+
+    function getDosennottetap()
+    {
+        $name = 'nodostap';
+        $db      = \Config\Database::connect();
         $builder = $db->table('ripendosens');
         $builder->select('*');
         $builder->join('users', 'users.id = ripendosens.id_dosen');
         $builder->join('detildosens', 'detildosens.id = ripendosens.id_dosen');
         $builder->join('sertifkompdosens', 'sertifkompdosens.id = ripendosens.id_dosen');
+        $builder->where('users.status_dosen', $name);
+        $builder->orderBy('users.nama_dosen','ASC');
         $query = $builder->get();
         return $query->getResultArray();
 

@@ -47,7 +47,6 @@
                       <table
                         id="datatable"
                         class="table table-hover table-bordered display"
-                        style="width: 100%"
                         data-cols-width="30,30,30,40,30"
                       >
                         <thead>

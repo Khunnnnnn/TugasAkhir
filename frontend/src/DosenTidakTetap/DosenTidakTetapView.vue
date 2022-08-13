@@ -8,7 +8,7 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1 class="m-0">Profile Dosen Page</h1>
+                <h1 class="m-0">Dosen Tidak Tetap Page</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -29,7 +29,13 @@
                   <div class="card-body">
                     <vue-topprogress ref="topProgress"></vue-topprogress>
                     <button
-                      @click.prevent="ExportExcel('Bimbingan_TA')"
+                      @click.prevent="Tambah()"
+                      class="btn btn-sm btn-success mr-2"
+                    >
+                      TAMBAH
+                    </button>
+                    <button
+                      @click.prevent="ExportExcel('Sertifikat')"
                       class="btn btn-sm btn-success mr-2"
                       id="btnExport"
                     >
@@ -52,6 +58,7 @@
                               class="text-center"
                               data-f-sz="14"
                               data-a-h="center"
+                              
                               data-a-v="middle"
                             >
                               NAMA DOSEN
@@ -61,10 +68,11 @@
                               data-fill-color="add8e6"
                               class="text-center"
                               data-f-sz="14"
+                              
                               data-a-h="center"
                               data-a-v="middle"
                             >
-                              NIDN
+                              NIDN / NIDK
                             </th>
                             <th
                               data-f-bold="true"
@@ -74,17 +82,18 @@
                               data-a-h="center"
                               data-a-v="middle"
                             >
-                              NIK
+                              PENDIDIKAN PASCA SARJANA
                             </th>
                             <th
                               data-f-bold="true"
                               data-fill-color="add8e6"
                               class="text-center"
                               data-f-sz="14"
+                              
                               data-a-h="center"
                               data-a-v="middle"
                             >
-                              TEMPAT LAHIR
+                              BIDANG KEAHLIAN
                             </th>
                             <th
                               data-f-bold="true"
@@ -92,66 +101,7 @@
                               class="text-center"
                               data-f-sz="14"
                               data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              TANGGAL LAHIR
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              JENIS KELAMIN
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              STATUS PERKAWINAN
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              AGAMA
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              GOLONGAN
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
-                              data-a-v="middle"
-                            >
-                              PANGKAT
-                            </th>
-                            <th
-                              data-f-bold="true"
-                              data-fill-color="add8e6"
-                              class="text-center"
-                              data-f-sz="14"
-                              data-a-h="center"
+                              
                               data-a-v="middle"
                             >
                               JABATAN AKADEMIK
@@ -162,41 +112,47 @@
                               class="text-center"
                               data-f-sz="14"
                               data-a-h="center"
+                              
                               data-a-v="middle"
                             >
-                              ALAMAT
+                              SERTIFIKAT PENDIDIK PROFESIONAL
                             </th>
                             <th
                               data-f-bold="true"
                               data-fill-color="add8e6"
                               class="text-center"
                               data-f-sz="14"
+                              
                               data-a-h="center"
                               data-a-v="middle"
                             >
-                              NO TELEPON
+                              SERTIFIKAT KOMPETENSI / PROFESI / INDUSTRI
                             </th>
                             <th
                               data-f-bold="true"
                               data-fill-color="add8e6"
                               class="text-center"
                               data-f-sz="14"
+                              
                               data-a-h="center"
                               data-a-v="middle"
                             >
-                              EMAIL
+                              MATA KULIAH YANG DI AMPU PADA PS YANG DI
+                              AKREDITASI
                             </th>
                             <th
                               data-f-bold="true"
                               data-fill-color="add8e6"
                               class="text-center"
+                              
                               data-f-sz="14"
                               data-a-h="center"
                               data-a-v="middle"
                             >
-                              STATUS DOSEN
+                              KE SESUAIAN BIDANG KEAHLIAN DENGAN MATA KULIAH
+                              YANG DIAMPU
                             </th>
-                            <th>AKSI</th>
+                            <th >AKSI</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -208,46 +164,32 @@
                               {{ post.nidn }}
                             </td>
                             <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.nik }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.tempat_lahir }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.tanggal_lahir }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.jenis_kelamin }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.status_perkawinan }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.agama }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.golongan }}
-                            </td>
-                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.pangkat }}
+                              <div v-if="post.riwayat_pendidikan == 'S2'">
+                                {{ "S2" }}
+                              </div>
+                              <div  v-if="post.riwayat_pendidikan == 'S3'">
+                                {{ "S3" }}
+                              </div>
                             </td>
                             <td data-b-a-s="thin" data-t="s" data-a-h="center">
                               {{ post.jabatan_akademik }}
                             </td>
                             <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.alamat }}
+                              {{ post.nama_sertifikat }}
                             </td>
                             <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.no_telp }}
+                              {{ post.nama_sertifikat }}
                             </td>
                             <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              {{ post.email }}
+                              {{ post.nama_sertifikat }}
                             </td>
                             <td data-b-a-s="thin" data-t="s" data-a-h="center">
-                              <div v-if="post.status_dosen == 'dostap'" vl>
-                                {{ "Dosen Tetap" }}
+                              {{ post.program_studi }}
+                            </td>
+                            <td data-b-a-s="thin" data-t="s" data-a-h="center">
+                              <div v-if="post.kesesuaian">
+                                {{ "✓" }}
                               </div>
-                              <div v-else>{{"Tidak Dosen Tetap"}}</div>
                             </td>
                             <!-- <a v-bind:href="url + post.files">
                               <td>{{ post.files }}</td></a
@@ -313,8 +255,8 @@ window.jszip = jszip;
 import TableToExcel from "@linways/table-to-excel";
 export default {
   mounted() {
-    axios.get("http://localhost:8080/api/profiledosen").then((response) => {
-      this.users = response.data.user;
+    axios.get("http://localhost:8080/api/nodostep").then((response) => {
+      this.users = response.data.nodostep;
       console.log(response.data);
       setTimeout(() => {
         $("#datatable").DataTable({
@@ -335,7 +277,7 @@ export default {
       this.$refs.topProgress.done();
     }, 2000);
   },
-  name: "profiledosen",
+  name: "bimbinganta",
   components: {
     "nav-bar": NavbarView,
     "side-bar": SidebarView,
@@ -366,7 +308,7 @@ export default {
         if (result.value) {
           // <-- if confirmed
           this.$router.push({
-            name: "createbimbingan",
+            name: "createsertif",
           });
         }
       });
@@ -385,7 +327,7 @@ export default {
         if (result.isConfirmed) {
           // <-- if confirmed
           axios
-            .delete(`http://localhost:8080/api/post/${id}`)
+            .delete(`http://localhost:8080/api/detildosens/${id}`)
             .then((response) => {
               this.$swal("Deleted!", "Your file has been deleted.", "success");
               this.posts.splice(index, 1);
@@ -416,7 +358,7 @@ export default {
         if (result.value) {
           // <-- if confirmed
           this.$router.push({
-            name: "editprofile",
+            name: "edit",
             params: { id: id },
           });
         }

@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class SertifKompDosen extends Model
+class SertifikatKompetensi extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'sertifkompdosens';
+    protected $table            = 'sertifikatkompetensis';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama_sertifikat', 'id_dosen', 'keterangan', 'files'];
+    protected $allowedFields    = ['nama_skema','no_sertif','tanggal_sertif','lembaga_sertifikasi','dikeluarkan_oleh','id_dosen'];
 
     // Dates
     protected $useTimestamps = false;
@@ -40,13 +40,13 @@ class SertifKompDosen extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-    function getSertif()
+    function getSerkom()
     {
         $db      = \Config\Database::connect();
-        $name = 'id_dosen';
-        $builder = $db->table('sertifkompdosens');
+        // $name = 'id_dosen';
+        $builder = $db->table('sertifikatkompetensis');
         $builder->select('*');
-        $builder->join('users', 'users.id = sertifkompdosens.id_dosen');
+        $builder->join('users', 'users.id = sertifikatkompetensis.id_dosen');
         $query = $builder->get();
         return $query->getResultArray();
     }
