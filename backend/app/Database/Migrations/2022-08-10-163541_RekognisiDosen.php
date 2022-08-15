@@ -6,10 +6,10 @@ use CodeIgniter\Database\Migration;
 
 class RekognisiDosen extends Migration
 {
-    public function up()
-    {
-        //
-        $this->forge->addField([
+	public function up()
+	{
+		//
+		$this->forge->addField([
 			'id'          => [
 				'type'           => 'BIGINT',
 				'constraint'     => 5,
@@ -52,17 +52,17 @@ class RekognisiDosen extends Migration
 				'null' => true,
 			],
 		]);
-        // Membuat primary key
+		// Membuat primary key
 		$this->forge->addKey('id', TRUE);
-        // FK ke Users
-        $this->forge->addForeignKey('id_dosen', 'users', 'id','CASCADE', 'CASCADE');
+		// FK ke Users
+		$this->forge->addForeignKey('id_dosen', 'users', 'id', 'CASCADE', 'CASCADE');
 		// Membuat tabel news
 		$this->forge->createTable('rekognisidosens', TRUE);
-    }
+	}
 
-    public function down()
-    {
-        //
-        $this->forge->dropTable('rekognisidosens');
-    }
+	public function down()
+	{
+		//
+		$this->forge->dropTable('rekognisidosens');
+	}
 }

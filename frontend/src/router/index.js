@@ -293,6 +293,30 @@ const routes = [
       requiresAuth: true,
     }
   },
+  {
+    path: "/bukujurnal",
+    name: "bukujurnal",
+    component: () => import(/* webpackChunkName: "about" */ "../BabBukuJurnal/BukuJurnalView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/createbukujurnal",
+    name: "createbukujurnal",
+    component: () => import(/* webpackChunkName: "about" */ "../BabBukuJurnal/CreateBukuJurnalView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
+  {
+    path: "/ewmp",
+    name: "ewmp",
+    component: () => import(/* webpackChunkName: "about" */ "../Ewmp/EwmpView.vue"),
+    meta: {
+      requiresAuth: true,
+    }
+  },
 ];
 
 const router = new VueRouter({

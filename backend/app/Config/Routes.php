@@ -60,6 +60,8 @@ $routes->resource('api/kepuasanmahasiswa', ['controller' => 'KepuasanMahasiswa']
 $routes->resource('api/prodi', ['controller' => 'ProgramStudi']);
 $routes->resource('api/capaiankurikulum', ['controller' => 'CapaianKurikulum']);
 $routes->resource('api/pkm', ['controller' => 'Pkm']);
+$routes->resource('api/bukujurnal', ['controller' => 'BabBukuJurnal']);
+$routes->resource('api/ewmp', ['controller' => 'Ewmp']);
 
 
 
